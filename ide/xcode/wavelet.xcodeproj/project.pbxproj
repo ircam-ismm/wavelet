@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B181ED41BAB5F7900E6638C /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 0B181ED31BAB5F7900E6638C /* readme.md */; settings = {ASSET_TAGS = (); }; };
+		0B385A741AF2C44A00C1A2D2 /* main_wavelets_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */; };
+		0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* attribute.cpp */; };
+		0B4607F81B67D95800E3E1CE /* attribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* attribute.hpp */; };
+		0B4607FA1B67D95800E3E1CE /* wavelet_all.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */; };
+		0B4607FD1B67D95800E3E1CE /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
+		0B4607FE1B67D95800E3E1CE /* filterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* filterbank.hpp */; };
+		0B4607FF1B67D95800E3E1CE /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
+		0B4608001B67D95800E3E1CE /* wavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* wavelet.hpp */; };
+		0B4608051B67D9A400E3E1CE /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
+		0B4608061B67D9A400E3E1CE /* morlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* morlet.hpp */; };
+		0B7126E41B90949900D00372 /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
+		0B7126E51B90949900D00372 /* lowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* lowpass.hpp */; };
+		0B7126E71B91FF4E00D00372 /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
+		0B7126E81B91FF4E00D00372 /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
+		0B7126EA1B91FF4E00D00372 /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
+		0B7126EB1B91FF4E00D00372 /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
+		0B7126EC1B91FF4E00D00372 /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
+		0B7126EF1B91FF8A00D00372 /* libwavelet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B385A441AF2C0B400C1A2D2 /* libwavelet.a */; };
+		0B7126F01B9203A800D00372 /* tests_morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B287A1A1B05F076006D8F9A /* tests_morlet.cpp */; };
+		0B7126F11B9203A800D00372 /* tests_paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA71B6B74E300A34889 /* tests_paul.cpp */; };
+		0B9C9A621B725E09005E5F7F /* tests_filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B385A7A1AF2C7A000C1A2D2 /* tests_filterbank.cpp */; };
+		0BD30A8C1B947B000006BACA /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
+		0BD30A8D1B947B000006BACA /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
+		0BD30A8E1B947B000006BACA /* attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* attribute.cpp */; };
+		0BD30A8F1B947B000006BACA /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
+		0BD30A901B947B000006BACA /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
+		0BD30A911B947B000006BACA /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
+		0BD30A941B947B000006BACA /* morlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* morlet.hpp */; };
+		0BD30A951B947B000006BACA /* paul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* paul.hpp */; };
+		0BD30A961B947B000006BACA /* attribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* attribute.hpp */; };
+		0BD30A981B947B000006BACA /* lowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* lowpass.hpp */; };
+		0BD30A991B947B000006BACA /* wavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* wavelet.hpp */; };
+		0BD30A9A1B947B000006BACA /* wavelet_all.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */; };
+		0BD30A9B1B947B000006BACA /* filterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* filterbank.hpp */; };
+		0BFC0CA51B6B70F600A34889 /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
+		0BFC0CA61B6B70F600A34889 /* paul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* paul.hpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0B7126ED1B91FF8500D00372 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B385A3A1AF2C07700C1A2D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B385A431AF2C0B400C1A2D2;
+			remoteInfo = wavelet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0B385A541AF2C30800C1A2D2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0B07C4E41B6A1C9B00A53B16 /* __init__.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		0B07C4E51B6A1C9B00A53B16 /* move_files.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = move_files.sh; sourceTree = "<group>"; };
+		0B07C4E61B6A1C9B00A53B16 /* wavelet.i */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c.preprocessed; path = wavelet.i; sourceTree = "<group>"; };
+		0B07C4EB1B6A1FAC00A53B16 /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		0B181ED11BAB5F5200E6638C /* Doxyfile-API */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Doxyfile-API"; sourceTree = "<group>"; };
+		0B181ED21BAB5F5200E6638C /* Doxyfile-dot */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Doxyfile-dot"; sourceTree = "<group>"; };
+		0B181ED31BAB5F7900E6638C /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = readme.md; path = ../../readme.md; sourceTree = "<group>"; };
+		0B287A1A1B05F076006D8F9A /* tests_morlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests_morlet.cpp; sourceTree = "<group>"; };
+		0B385A441AF2C0B400C1A2D2 /* libwavelet.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwavelet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B385A561AF2C30800C1A2D2 /* wavelet_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wavelet_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B385A701AF2C44800C1A2D2 /* catch_utilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch_utilities.hpp; sourceTree = "<group>"; };
+		0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_wavelets_tests.cpp; sourceTree = "<group>"; };
+		0B385A7A1AF2C7A000C1A2D2 /* tests_filterbank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests_filterbank.cpp; sourceTree = "<group>"; };
+		0B4607ED1B67D95800E3E1CE /* attribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attribute.cpp; sourceTree = "<group>"; };
+		0B4607EE1B67D95800E3E1CE /* attribute.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = attribute.hpp; sourceTree = "<group>"; };
+		0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wavelet_all.hpp; sourceTree = "<group>"; };
+		0B4607F31B67D95800E3E1CE /* filterbank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filterbank.cpp; sourceTree = "<group>"; };
+		0B4607F41B67D95800E3E1CE /* filterbank.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filterbank.hpp; sourceTree = "<group>"; };
+		0B4607F51B67D95800E3E1CE /* wavelet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wavelet.cpp; sourceTree = "<group>"; };
+		0B4607F61B67D95800E3E1CE /* wavelet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wavelet.hpp; sourceTree = "<group>"; };
+		0B4608031B67D9A400E3E1CE /* morlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = morlet.cpp; sourceTree = "<group>"; };
+		0B4608041B67D9A400E3E1CE /* morlet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = morlet.hpp; sourceTree = "<group>"; };
+		0B7126E21B90949900D00372 /* lowpass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lowpass.cpp; sourceTree = "<group>"; };
+		0B7126E31B90949900D00372 /* lowpass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lowpass.hpp; sourceTree = "<group>"; };
+		0BD30A9F1B947B010006BACA /* libwavelet.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwavelet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BFC0CA31B6B70F600A34889 /* paul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = paul.cpp; sourceTree = "<group>"; };
+		0BFC0CA41B6B70F600A34889 /* paul.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = paul.hpp; sourceTree = "<group>"; };
+		0BFC0CA71B6B74E300A34889 /* tests_paul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests_paul.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B385A411AF2C0B400C1A2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B385A531AF2C30800C1A2D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7126EF1B91FF8A00D00372 /* libwavelet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BD30A921B947B000006BACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B07C4E81B6A1CA000A53B16 /* python */ = {
+			isa = PBXGroup;
+			children = (
+				0B07C4E91B6A1CB900A53B16 /* src */,
+			);
+			name = python;
+			path = ../../python;
+			sourceTree = "<group>";
+		};
+		0B07C4E91B6A1CB900A53B16 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0B07C4E41B6A1C9B00A53B16 /* __init__.py */,
+				0B07C4E51B6A1C9B00A53B16 /* move_files.sh */,
+				0B07C4E61B6A1C9B00A53B16 /* wavelet.i */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		0B07C4EA1B6A1F9D00A53B16 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				0B07C4EB1B6A1FAC00A53B16 /* Doxyfile */,
+				0B181ED11BAB5F5200E6638C /* Doxyfile-API */,
+				0B181ED21BAB5F5200E6638C /* Doxyfile-dot */,
+			);
+			name = doc;
+			path = ../../doc;
+			sourceTree = "<group>";
+		};
+		0B385A391AF2C07700C1A2D2 = {
+			isa = PBXGroup;
+			children = (
+				0B181ED31BAB5F7900E6638C /* readme.md */,
+				0B385A661AF2C3FE00C1A2D2 /* src */,
+				0B385A6F1AF2C43900C1A2D2 /* test */,
+				0B07C4E81B6A1CA000A53B16 /* python */,
+				0B07C4EA1B6A1F9D00A53B16 /* doc */,
+				0B385A451AF2C0B400C1A2D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B385A451AF2C0B400C1A2D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B385A441AF2C0B400C1A2D2 /* libwavelet.a */,
+				0B385A561AF2C30800C1A2D2 /* wavelet_test */,
+				0BD30A9F1B947B010006BACA /* libwavelet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B385A661AF2C3FE00C1A2D2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */,
+				0B4608011B67D95D00E3E1CE /* core */,
+				0B4608021B67D98200E3E1CE /* wavelets */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		0B385A6F1AF2C43900C1A2D2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				0B385A701AF2C44800C1A2D2 /* catch_utilities.hpp */,
+				0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */,
+				0B385A7A1AF2C7A000C1A2D2 /* tests_filterbank.cpp */,
+				0B287A1A1B05F076006D8F9A /* tests_morlet.cpp */,
+				0BFC0CA71B6B74E300A34889 /* tests_paul.cpp */,
+			);
+			name = test;
+			path = ../../test;
+			sourceTree = "<group>";
+		};
+		0B4608011B67D95D00E3E1CE /* core */ = {
+			isa = PBXGroup;
+			children = (
+				0B4607ED1B67D95800E3E1CE /* attribute.cpp */,
+				0B4607EE1B67D95800E3E1CE /* attribute.hpp */,
+				0B7126E21B90949900D00372 /* lowpass.cpp */,
+				0B7126E31B90949900D00372 /* lowpass.hpp */,
+				0B4607F51B67D95800E3E1CE /* wavelet.cpp */,
+				0B4607F61B67D95800E3E1CE /* wavelet.hpp */,
+				0B4607F31B67D95800E3E1CE /* filterbank.cpp */,
+				0B4607F41B67D95800E3E1CE /* filterbank.hpp */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		0B4608021B67D98200E3E1CE /* wavelets */ = {
+			isa = PBXGroup;
+			children = (
+				0B4608031B67D9A400E3E1CE /* morlet.cpp */,
+				0B4608041B67D9A400E3E1CE /* morlet.hpp */,
+				0BFC0CA31B6B70F600A34889 /* paul.cpp */,
+				0BFC0CA41B6B70F600A34889 /* paul.hpp */,
+			);
+			path = wavelets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0B385A421AF2C0B400C1A2D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B4608061B67D9A400E3E1CE /* morlet.hpp in Headers */,
+				0BFC0CA61B6B70F600A34889 /* paul.hpp in Headers */,
+				0B4607F81B67D95800E3E1CE /* attribute.hpp in Headers */,
+				0B7126E51B90949900D00372 /* lowpass.hpp in Headers */,
+				0B4608001B67D95800E3E1CE /* wavelet.hpp in Headers */,
+				0B4607FA1B67D95800E3E1CE /* wavelet_all.hpp in Headers */,
+				0B4607FE1B67D95800E3E1CE /* filterbank.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BD30A931B947B000006BACA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BD30A941B947B000006BACA /* morlet.hpp in Headers */,
+				0BD30A951B947B000006BACA /* paul.hpp in Headers */,
+				0BD30A961B947B000006BACA /* attribute.hpp in Headers */,
+				0BD30A981B947B000006BACA /* lowpass.hpp in Headers */,
+				0BD30A991B947B000006BACA /* wavelet.hpp in Headers */,
+				0BD30A9A1B947B000006BACA /* wavelet_all.hpp in Headers */,
+				0BD30A9B1B947B000006BACA /* filterbank.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0B4837A11AF6899800B35A68 /* doc */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0B4837A41AF6899800B35A68 /* Build configuration list for PBXLegacyTarget "doc" */;
+			buildPhases = (
+			);
+			buildToolPath = "$(DOXYGEN)";
+			buildWorkingDirectory = ../../doc/;
+			dependencies = (
+			);
+			name = doc;
+			passBuildSettingsInEnvironment = 1;
+			productName = doc;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		0B385A431AF2C0B400C1A2D2 /* wavelet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B385A4F1AF2C0B400C1A2D2 /* Build configuration list for PBXNativeTarget "wavelet" */;
+			buildPhases = (
+				0B385A401AF2C0B400C1A2D2 /* Sources */,
+				0B385A411AF2C0B400C1A2D2 /* Frameworks */,
+				0B385A421AF2C0B400C1A2D2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wavelet;
+			productName = wavelet;
+			productReference = 0B385A441AF2C0B400C1A2D2 /* libwavelet.a */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		0B385A551AF2C30800C1A2D2 /* wavelet_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B385A5A1AF2C30800C1A2D2 /* Build configuration list for PBXNativeTarget "wavelet_test" */;
+			buildPhases = (
+				0B385A521AF2C30800C1A2D2 /* Sources */,
+				0B385A531AF2C30800C1A2D2 /* Frameworks */,
+				0B385A541AF2C30800C1A2D2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B7126EE1B91FF8500D00372 /* PBXTargetDependency */,
+			);
+			name = wavelet_test;
+			productName = wavelet_test;
+			productReference = 0B385A561AF2C30800C1A2D2 /* wavelet_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		0BD30A8A1B947B000006BACA /* wavelet-noarma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BD30A9C1B947B000006BACA /* Build configuration list for PBXNativeTarget "wavelet-noarma" */;
+			buildPhases = (
+				0BD30A8B1B947B000006BACA /* Sources */,
+				0BD30A921B947B000006BACA /* Frameworks */,
+				0BD30A931B947B000006BACA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wavelet-noarma";
+			productName = wavelet;
+			productReference = 0BD30A9F1B947B010006BACA /* libwavelet.a */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B385A3A1AF2C07700C1A2D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				TargetAttributes = {
+					0B385A431AF2C0B400C1A2D2 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					0B385A551AF2C30800C1A2D2 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					0B4837A11AF6899800B35A68 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 0B385A3D1AF2C07700C1A2D2 /* Build configuration list for PBXProject "wavelet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0B385A391AF2C07700C1A2D2;
+			productRefGroup = 0B385A451AF2C0B400C1A2D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B385A431AF2C0B400C1A2D2 /* wavelet */,
+				0BD30A8A1B947B000006BACA /* wavelet-noarma */,
+				0B385A551AF2C30800C1A2D2 /* wavelet_test */,
+				0B4837A11AF6899800B35A68 /* doc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B385A401AF2C0B400C1A2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B4607FF1B67D95800E3E1CE /* wavelet.cpp in Sources */,
+				0B4608051B67D9A400E3E1CE /* morlet.cpp in Sources */,
+				0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */,
+				0BFC0CA51B6B70F600A34889 /* paul.cpp in Sources */,
+				0B181ED41BAB5F7900E6638C /* readme.md in Sources */,
+				0B7126E41B90949900D00372 /* lowpass.cpp in Sources */,
+				0B4607FD1B67D95800E3E1CE /* filterbank.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B385A521AF2C30800C1A2D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B7126F01B9203A800D00372 /* tests_morlet.cpp in Sources */,
+				0B9C9A621B725E09005E5F7F /* tests_filterbank.cpp in Sources */,
+				0B7126E71B91FF4E00D00372 /* wavelet.cpp in Sources */,
+				0B7126EA1B91FF4E00D00372 /* lowpass.cpp in Sources */,
+				0B7126EB1B91FF4E00D00372 /* morlet.cpp in Sources */,
+				0B385A741AF2C44A00C1A2D2 /* main_wavelets_tests.cpp in Sources */,
+				0B7126F11B9203A800D00372 /* tests_paul.cpp in Sources */,
+				0B7126EC1B91FF4E00D00372 /* paul.cpp in Sources */,
+				0B7126E81B91FF4E00D00372 /* filterbank.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BD30A8B1B947B000006BACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BD30A8C1B947B000006BACA /* wavelet.cpp in Sources */,
+				0BD30A8D1B947B000006BACA /* morlet.cpp in Sources */,
+				0BD30A8E1B947B000006BACA /* attribute.cpp in Sources */,
+				0BD30A8F1B947B000006BACA /* paul.cpp in Sources */,
+				0BD30A901B947B000006BACA /* lowpass.cpp in Sources */,
+				0BD30A911B947B000006BACA /* filterbank.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B7126EE1B91FF8500D00372 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B385A431AF2C0B400C1A2D2 /* wavelet */;
+			targetProxy = 0B7126ED1B91FF8500D00372 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B385A3E1AF2C07700C1A2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BOOST_HEADER_DIR = /usr/local/include;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CMAKE = /usr/local/bin/cmake;
+				DOXYGEN = /usr/local/bin/doxygen;
+				DSTROOT = "${PROJECT_DIR}../../bin/";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BOOST_HEADER_DIR)",
+				);
+				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		0B385A3F1AF2C07700C1A2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BOOST_HEADER_DIR = /usr/local/include;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CMAKE = /usr/local/bin/cmake;
+				DOXYGEN = /usr/local/bin/doxygen;
+				DSTROOT = "${PROJECT_DIR}../../bin/";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BOOST_HEADER_DIR)",
+				);
+				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		0B385A4D1AF2C0B400C1A2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					USE_ARMA,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B385A4E1AF2C0B400C1A2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = USE_ARMA;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0B385A5B1AF2C30800C1A2D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CATCH_HEADERS = "${PROJECT_DIR}/../../dependencies/catch";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					USE_ARMA,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-larmadillo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${CATCH_HEADERS}";
+			};
+			name = Debug;
+		};
+		0B385A5C1AF2C30800C1A2D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CATCH_HEADERS = "${PROJECT_DIR}/../../dependencies/catch";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = USE_ARMA;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-larmadillo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${CATCH_HEADERS}";
+			};
+			name = Release;
+		};
+		0B4837A21AF6899800B35A68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0B4837A31AF6899800B35A68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0BD30A9D1B947B000006BACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = wavelet;
+			};
+			name = Debug;
+		};
+		0BD30A9E1B947B000006BACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_EXTENSION = a;
+				EXECUTABLE_PREFIX = lib;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = wavelet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B385A3D1AF2C07700C1A2D2 /* Build configuration list for PBXProject "wavelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B385A3E1AF2C07700C1A2D2 /* Debug */,
+				0B385A3F1AF2C07700C1A2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B385A4F1AF2C0B400C1A2D2 /* Build configuration list for PBXNativeTarget "wavelet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B385A4D1AF2C0B400C1A2D2 /* Debug */,
+				0B385A4E1AF2C0B400C1A2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B385A5A1AF2C30800C1A2D2 /* Build configuration list for PBXNativeTarget "wavelet_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B385A5B1AF2C30800C1A2D2 /* Debug */,
+				0B385A5C1AF2C30800C1A2D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B4837A41AF6899800B35A68 /* Build configuration list for PBXLegacyTarget "doc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B4837A21AF6899800B35A68 /* Debug */,
+				0B4837A31AF6899800B35A68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BD30A9C1B947B000006BACA /* Build configuration list for PBXNativeTarget "wavelet-noarma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BD30A9D1B947B000006BACA /* Debug */,
+				0BD30A9E1B947B000006BACA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B385A3A1AF2C07700C1A2D2 /* Project object */;
+}
