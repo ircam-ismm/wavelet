@@ -102,7 +102,7 @@ std::string wavelet::MorletWavelet::info() const
     return infostrstream.str();
 }
 
-double wavelet::MorletWavelet::criticalTime() const
+double wavelet::MorletWavelet::eFoldingTime() const
 {
     return M_SQRT2 * this->scale.get() * this->samplerate.get();
 }

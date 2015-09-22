@@ -78,8 +78,8 @@ namespace std {
 // Wrap Attribute template specializations
 %define WRAP_ATTR_TEMPLATES(type_name, cpp_type)
 %template(Attribute_ ## type_name) Attribute<cpp_type>;
-%template(getAttribute_ ## type_name) Filterbank::getAttribute<cpp_type>;
-%template(setAttribute_ ## type_name) Filterbank::setAttribute<cpp_type>;
+%template(_getAttribute_ ## type_name) Filterbank::getAttribute<cpp_type>;
+%template(_setAttribute_ ## type_name) Filterbank::setAttribute<cpp_type>;
 %enddef
 
 namespace wavelet {
@@ -101,68 +101,118 @@ namespace wavelet {
 // Rewrite interface to set Attributes
 %pythoncode %{
 def setAttribute(self, attr_name, attr_value):
+        """ Set an attribute by name
+
+=== General attributes:
+
+'frequency_min' [float]:
+    Minimum Frequency of the Filterbank (Hz)
+    Value range: ]0., samplerate/2.]
+'frequency_max' [float]:
+    Maximum Frequency of the Filterbank (Hz)
+    Value range: ]0., samplerate/2.]
+'bands_per_octave' [float]:
+    Number of bands per octave of the Filterbank
+    Value range: > 1.
+'optimisation' [Optimisation]:
+    Optimisation mode the filterbank implementation
+    Value range: {NONE, STANDARD, AGRESSIVE}
+'family' [Family]:
+    Wavelet Family
+    Value range: {MORLET, PAUL}
+'samplerate' [float]:
+     Sampling rate of the data
+    Value range: ]0.
+'delay' [float]:
+     Delay relative to critical wavelet time
+    Value range: > 0.
+'padding' [float]:
+     Padding relative to critical wavelet time
+    Value range: >=0.
+
+=== Wavelet-specific attributes:
+
+Morlet Wavelet:
+    'omega0' [float]:
+        Carrier Frequency
+        Value range: > 0.
+Paul Wavelet:
+    'order' [unsigned int]:
+        Order of the Paul Wavelet
+        Value range: > 0
+
+    Args:
+        attr_name -- attribute name
+        attr_value -- attribute value
+
+    Returns:
+        Attribute value
+
+    Raises:
+        exception if the attribute does not exists or type error
+    """
     try:
-        self.setAttribute_unsigned_char(attr_name, attr_value)
+        self._setAttribute_unsigned_char(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_unsigned_int(attr_name, attr_value)
+        self._setAttribute_unsigned_int(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_unsigned_long(attr_name, attr_value)
+        self._setAttribute_unsigned_long(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_char(attr_name, attr_value)
+        self._setAttribute_char(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_int(attr_name, attr_value)
+        self._setAttribute_int(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_long(attr_name, attr_value)
+        self._setAttribute_long(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_size_t(attr_name, attr_value)
+        self._setAttribute_size_t(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_float(attr_name, attr_value)
+        self._setAttribute_float(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_double(attr_name, attr_value)
+        self._setAttribute_double(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_long_double(attr_name, attr_value)
+        self._setAttribute_long_double(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_Family(attr_name, attr_value)
+        self._setAttribute_Family(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_WaveletDomain(attr_name, attr_value)
+        self._setAttribute_WaveletDomain(attr_name, attr_value)
         return
     except:
         pass
     try:
-        self.setAttribute_Optimisation(attr_name, attr_value)
+        self._setAttribute_Optimisation(attr_name, attr_value)
         return
     except:
         pass
@@ -175,56 +225,105 @@ MorletWavelet.setAttribute = setAttribute
 PaulWavelet.setAttribute = setAttribute
 
 def getAttribute(self, attr_name):
+    """ Get an attribute by name
+
+=== General attributes:
+
+'frequency_min' [float]:
+    Minimum Frequency of the Filterbank (Hz)
+    Value range: ]0., samplerate/2.]
+'frequency_max' [float]:
+    Maximum Frequency of the Filterbank (Hz)
+    Value range: ]0., samplerate/2.]
+'bands_per_octave' [float]:
+    Number of bands per octave of the Filterbank
+    Value range: > 1.
+'optimisation' [Optimisation]:
+    Optimisation mode the filterbank implementation
+    Value range: {NONE, STANDARD, AGRESSIVE}
+'family' [Family]:
+    Wavelet Family
+    Value range: {MORLET, PAUL}
+'samplerate' [float]:
+     Sampling rate of the data
+    Value range: ]0.
+'delay' [float]:
+     Delay relative to critical wavelet time
+    Value range: > 0.
+'padding' [float]:
+     Padding relative to critical wavelet time
+    Value range: >=0.
+
+=== Wavelet-specific attributes:
+
+Morlet Wavelet:
+    'omega0' [float]:
+        Carrier Frequency
+        Value range: > 0.
+Paul Wavelet:
+    'order' [unsigned int]:
+        Order of the Paul Wavelet
+        Value range: > 0
+
+    Args:
+        attr_name -- attribute name
+
+    Returns:
+        Attribute value
+
+    Raises:
+        exception if the attribute does not exists or type error
+    """
     try:
-        return self.getAttribute_unsigned_char(attr_name)
+        return self._getAttribute_unsigned_char(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_unsigned_int(attr_name)
+        return self._getAttribute_unsigned_int(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_unsigned_long(attr_name)
+        return self._getAttribute_unsigned_long(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_char(attr_name)
+        return self._getAttribute_char(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_int(attr_name)
+        return self._getAttribute_int(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_long(attr_name)
+        return self._getAttribute_long(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_size_t(attr_name)
+        return self._getAttribute_size_t(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_float(attr_name)
+        return self._getAttribute_float(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_double(attr_name)
+        return self._getAttribute_double(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_long_double(attr_name)
+        return self._getAttribute_long_double(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_Family(attr_name)
+        return self._getAttribute_Family(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_WaveletDomain(attr_name)
+        return self._getAttribute_WaveletDomain(attr_name)
     except:
         pass
     try:
-        return self.getAttribute_Optimisation(attr_name)
+        return self._getAttribute_Optimisation(attr_name)
     except:
         pass
     raise Exception("Ooops, it seems that the wrapper for this attribute is not implemented...")

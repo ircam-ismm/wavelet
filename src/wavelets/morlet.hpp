@@ -112,9 +112,9 @@ namespace wavelet {
         
         /**
          * @brief compute the critical time of the wavelet
-         * @return critical time at the current scale
+         * @return critical time at the current scale in samples
          */
-        virtual double criticalTime() const;
+        virtual double eFoldingTime() const;
         
         /**
          * @brief rescaled wavelet function

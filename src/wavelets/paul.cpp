@@ -110,7 +110,7 @@ std::string wavelet::PaulWavelet::info() const
     return infostrstream.str();
 }
 
-double wavelet::PaulWavelet::criticalTime() const
+double wavelet::PaulWavelet::eFoldingTime() const
 {
     return (this->scale.get() * this->samplerate.get()) / M_SQRT2;
 }

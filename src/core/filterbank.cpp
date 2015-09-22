@@ -131,7 +131,7 @@ std::vector<int> wavelet::Filterbank::delaysInSamples() const
     std::vector<int> delays(size());
     unsigned int i(0);
     for (auto &wav : wavelets_) {
-        delays[i++] = wav->delay.get() * wav->criticalTime();
+        delays[i++] = wav->delay.get() * wav->eFoldingTime();
     }
     return delays;
 }

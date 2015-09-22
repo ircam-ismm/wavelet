@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B181ED41BAB5F7900E6638C /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 0B181ED31BAB5F7900E6638C /* readme.md */; settings = {ASSET_TAGS = (); }; };
 		0B385A741AF2C44A00C1A2D2 /* main_wavelets_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */; };
 		0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* attribute.cpp */; };
 		0B4607F81B67D95800E3E1CE /* attribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* attribute.hpp */; };
@@ -378,7 +377,6 @@
 				0B4608051B67D9A400E3E1CE /* morlet.cpp in Sources */,
 				0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */,
 				0BFC0CA51B6B70F600A34889 /* paul.cpp in Sources */,
-				0B181ED41BAB5F7900E6638C /* readme.md in Sources */,
 				0B7126E41B90949900D00372 /* lowpass.cpp in Sources */,
 				0B4607FD1B67D95800E3E1CE /* filterbank.cpp in Sources */,
 			);
