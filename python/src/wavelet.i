@@ -101,7 +101,7 @@ namespace wavelet {
 // Rewrite interface to set Attributes
 %pythoncode %{
 def setAttribute(self, attr_name, attr_value):
-        """ Set an attribute by name
+    """ Set an attribute by name
 
 === General attributes:
 
