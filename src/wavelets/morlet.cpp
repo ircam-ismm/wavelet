@@ -63,9 +63,9 @@ wavelet::MorletWavelet::~MorletWavelet()
 std::complex<double> wavelet::MorletWavelet::phi(double arg) const
 {
     //// Next line: Complete Morlet Wavelet (correction term for low omega0)
-    //    return std::exp(-0.5 * arg*arg)
-    //    * (std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg)) - std::exp(-std::complex<double>(0.5 * this->omega0.get() * this->omega0.get(), 0.)))
-    //    * sqrt(1. / double(this->scale.get() * this->samplerate.get())) * pow(M_PI, -0.25);
+        return std::exp(-0.5 * arg*arg)
+        * (std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg)) - std::exp(-std::complex<double>(0.5 * this->omega0.get() * this->omega0.get(), 0.)))
+        * sqrt(1. / double(this->scale.get() * this->samplerate.get())) * pow(M_PI, -0.25);
     
     return std::exp(-0.5 * arg*arg)
     * std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg))
