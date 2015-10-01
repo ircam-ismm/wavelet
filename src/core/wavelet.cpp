@@ -74,7 +74,7 @@ void wavelet::Wavelet::init()
 {
     values.assign(this->window_size.get(), 0.0);
     if (this->mode.get() == RECURSIVE) {
-        int pad_length = static_cast<int>(padding.get() * eFoldingTime());
+        int pad_length = static_cast<int>(padding.get() * eFoldingTime() * this->samplerate.get());
         prepad_value_ = std::complex<double>(0., 0.);
         for (int t=-pad_length; t<0; ++t) {
             double wavelet_arg = (double(t) - double(this->window_size.get() / 2)) / (this->scale.get() * this->samplerate.get());
@@ -162,7 +162,7 @@ boost::any wavelet::Wavelet::getAttribute_internal(std::string attr_name) const
 
 void wavelet::Wavelet::setDefaultWindowsize()
 {
-    std::size_t winsize = static_cast<std::size_t>(2. * delay.get() * eFoldingTime());
+    std::size_t winsize = static_cast<std::size_t>(2. * delay.get() * eFoldingTime() * this->samplerate.get());
     winsize = (winsize < 3) ? 3 : winsize;
     winsize += (winsize % 2 == 0);
     window_size.set(winsize);

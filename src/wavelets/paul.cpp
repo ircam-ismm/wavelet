@@ -112,7 +112,7 @@ std::string wavelet::PaulWavelet::info() const
 
 double wavelet::PaulWavelet::eFoldingTime() const
 {
-    return (this->scale.get() * this->samplerate.get()) / M_SQRT2;
+    return this->scale.get() / M_SQRT2;
 }
 
 void wavelet::PaulWavelet::setAttribute_internal(std::string attr_name,

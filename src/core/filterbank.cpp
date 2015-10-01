@@ -41,7 +41,8 @@ frequency_min(this, frequency_min_, 1e-12, frequency_max_),
 frequency_max(this, frequency_max_, frequency_min_, samplerate_/2.),
 bands_per_octave(this, bands_per_octave_, 1.),
 optimisation(this, NONE),
-family(this, DEFAULT_FAMILY)
+family(this, DEFAULT_FAMILY),
+rescale(this, true)
 {
     switch (family.get()) {
         case wavelet::MORLET:
@@ -72,6 +73,8 @@ wavelet::Filterbank::Filterbank(Filterbank const& src)
     this->optimisation.set_parent(this);
     this->family = src.family;
     this->family.set_parent(this);
+    this->rescale = src.rescale;
+    this->rescale.set_parent(this);
     switch (this->family.get()) {
         case wavelet::MORLET:
             this->reference_wavelet_ = std::unique_ptr<MorletWavelet>(new MorletWavelet(*std::static_pointer_cast<MorletWavelet>(src.reference_wavelet_)));
@@ -101,6 +104,8 @@ wavelet::Filterbank& wavelet::Filterbank::operator=(Filterbank const& src)
         this->optimisation.set_parent(this);
         this->family = src.family;
         this->family.set_parent(this);
+        this->rescale = src.rescale;
+        this->rescale.set_parent(this);
         this->reference_wavelet_ = std::unique_ptr<MorletWavelet>(new MorletWavelet(src.reference_wavelet_->samplerate.get()));
         *(this->reference_wavelet_) = *(src.reference_wavelet_);
         this->init();
@@ -131,7 +136,7 @@ std::vector<int> wavelet::Filterbank::delaysInSamples() const
     std::vector<int> delays(size());
     unsigned int i(0);
     for (auto &wav : wavelets_) {
-        delays[i++] = wav->delay.get() * wav->eFoldingTime();
+        delays[i++] = wav->delay.get() * wav->eFoldingTime() * reference_wavelet_->samplerate.get();
     }
     return delays;
 }
@@ -178,6 +183,8 @@ void wavelet::Filterbank::setAttribute_internal(std::string attr_name,
         family.set(boost::any_cast<Family>(attr_value));
     } else if (attr_name == "optimisation") {
         optimisation.set(boost::any_cast<Optimisation>(attr_value));
+    } else if (attr_name == "rescale") {
+        rescale.set(boost::any_cast<bool>(attr_value));
     } else {
         if (attr_name != "scale" && attr_name != "window_size") {
             reference_wavelet_->setAttribute(attr_name, attr_value);
@@ -203,6 +210,8 @@ boost::any wavelet::Filterbank::getAttribute_internal(std::string attr_name) con
         return boost::any(optimisation.get());
     if (attr_name == "family")
         return boost::any(family.get());
+    if (attr_name == "rescale")
+        return boost::any(rescale.get());
     if (attr_name != "scale" && attr_name != "window_size")
         return reference_wavelet_->getAttribute_internal(attr_name);
     throw std::runtime_error("Attribute " + attr_name + "does not exist or is not shared among filters.");
@@ -354,7 +363,8 @@ void wavelet::Filterbank::update(float value)
         // Padding: after
         result_complex[filter_index] += std::complex<double>(data_it->second[data_it->second.size()-1], 0) * wavelets_[filter_index]->postpad_value_;
         // Rescale
-        result_complex[filter_index] /= std::sqrt(wavelets_[filter_index]->scale.get());
+        if (rescale.get())
+            result_complex[filter_index] /= std::sqrt(wavelets_[filter_index]->scale.get());
         result_complex[filter_index] *= std::sqrt(double(decim));
         result_power[filter_index] = std::norm(result_complex[filter_index]);
     }
@@ -373,7 +383,9 @@ arma::cx_mat wavelet::Filterbank::process(std::vector<double> values)
         wavelets_[filter_index]->mode.set(Wavelet::SPECTRAL);
         wavelets_[filter_index]->window_size.set(values.size());
         sig_spectral_tmp = sig_spectral % arma::conv_to<arma::cx_vec>::from(wavelets_[filter_index]->values);
-        scalogram.col(filter_index) = arma::ifft(sig_spectral_tmp) / (sqrt(wavelets_[filter_index]->scale.get()));
+        scalogram.col(filter_index) = arma::ifft(sig_spectral_tmp);
+        if (rescale.get())
+            scalogram.col(filter_index) /= (sqrt(wavelets_[filter_index]->scale.get()));
         wavelets_[filter_index]->window_size.set(previous_window_size);
         wavelets_[filter_index]->mode.set(Wavelet::RECURSIVE);
     }

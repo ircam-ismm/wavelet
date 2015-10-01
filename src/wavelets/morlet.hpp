@@ -112,7 +112,7 @@ namespace wavelet {
         
         /**
          * @brief compute the critical time of the wavelet
-         * @return critical time at the current scale in samples
+         * @return e-folding time at the current scale in seconds
          */
         virtual double eFoldingTime() const;
         

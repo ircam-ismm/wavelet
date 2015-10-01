@@ -319,6 +319,11 @@ namespace wavelet {
         Attribute<Family> family;
         
         /**
+         * @brief rescale power frames
+         */
+        Attribute<bool> rescale;
+        
+        /**
          * @brief Scales of each band in the filterbank
          */
         std::vector<double> scales;

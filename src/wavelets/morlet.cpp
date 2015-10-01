@@ -104,7 +104,7 @@ std::string wavelet::MorletWavelet::info() const
 
 double wavelet::MorletWavelet::eFoldingTime() const
 {
-    return M_SQRT2 * this->scale.get() * this->samplerate.get();
+    return M_SQRT2 * this->scale.get();
 }
 
 void wavelet::MorletWavelet::setAttribute_internal(std::string attr_name,

@@ -65,6 +65,11 @@ namespace wavelet {
                                   std::size_t const& limit_max);
     
     template <>
+    void checkLimits<bool>(bool const& value,
+                           bool const& limit_min,
+                           bool const& limit_max);
+    
+    template <>
     void checkLimits<unsigned char>(unsigned char const& value,
                                     unsigned char const& limit_min,
                                     unsigned char const& limit_max);
@@ -265,7 +270,7 @@ namespace wavelet {
          * @param limit_max maximum value
          */
         void set_limits(T const& limit_min=default_limit_min(),
-                       T const& limit_max=default_limit_max())
+                        T const& limit_max=default_limit_max())
         {
             set_limit_min(limit_min);
             set_limit_max(limit_max);

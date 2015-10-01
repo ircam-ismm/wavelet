@@ -83,6 +83,7 @@ namespace std {
 %enddef
 
 namespace wavelet {
+    WRAP_ATTR_TEMPLATES(bool, bool)
     WRAP_ATTR_TEMPLATES(unsigned_char, unsigned char)
     WRAP_ATTR_TEMPLATES(unsigned_int, unsigned int)
     WRAP_ATTR_TEMPLATES(unsigned_long, unsigned long)
@@ -151,6 +152,11 @@ Paul Wavelet:
     Raises:
         exception if the attribute does not exists or type error
     """
+    try:
+        self._setAttribute_bool(attr_name, attr_value)
+        return
+    except:
+        pass
     try:
         self._setAttribute_unsigned_char(attr_name, attr_value)
         return
@@ -274,6 +280,10 @@ Paul Wavelet:
     Raises:
         exception if the attribute does not exists or type error
     """
+    try:
+        return self._getAttribute_bool(attr_name)
+    except:
+        pass
     try:
         return self._getAttribute_unsigned_char(attr_name)
     except:
