@@ -42,7 +42,7 @@ wavelet::Filterbank::Filterbank(float samplerate_, float frequency_min_,
     : frequency_min(this, frequency_min_, 1e-12, frequency_max_),
       frequency_max(this, frequency_max_, frequency_min_, samplerate_ / 2.),
       bands_per_octave(this, bands_per_octave_, 1.),
-      optimisation(this, NONE),
+      optimisation(this, Optimisation::None),
       family(this, DEFAULT_FAMILY),
       rescale(this, true) {
     switch (family.get()) {
@@ -127,7 +127,8 @@ std::string wavelet::Filterbank::info() const {
     infostrstream << "\tFrequency Range: " << frequency_min.get() << " "
                   << frequency_max.get() << "\n";
     infostrstream << "\tBands per Octave: " << bands_per_octave.get() << "\n";
-    infostrstream << "\tOptimisation: " << optimisation.get() << "\n";
+    infostrstream << "\tOptimisation: " << static_cast<int>(optimisation.get())
+                  << "\n";
     if (!wavelets_.empty()) {
         infostrstream << reference_wavelet_->info();
     }
@@ -138,8 +139,15 @@ std::vector<int> wavelet::Filterbank::delaysInSamples() const {
     std::vector<int> delays(size());
     unsigned int i(0);
     for (auto& wav : wavelets_) {
-        delays[i++] = wav->delay.get() * wav->eFoldingTime() *
-                      reference_wavelet_->samplerate.get();
+        if (optimisation.get() != Optimisation::None) {
+            delays[i] = wav->delay.get() * wav->eFoldingTime() *
+                            reference_wavelet_->samplerate.get() +
+                        downsampling_factors[i];
+            i++;
+        } else {
+            delays[i++] = wav->delay.get() * wav->eFoldingTime() *
+                          reference_wavelet_->samplerate.get();
+        }
     }
     return delays;
 }
@@ -237,14 +245,19 @@ void wavelet::Filterbank::init() {
             scale_0 * pow(2., double(scale_index) / bands_per_octave.get());
         frequencies[i] = reference_wavelet_->scale2frequency(scales[i]);
     }
-    if (optimisation.get() != NONE) {
+    if (optimisation.get() != Optimisation::None) {
         downsampling_factors.resize(max_index - min_index);
         for (long scale_index = min_index, i = 0; scale_index < max_index;
              scale_index++, i++) {
-            double samplerate_ratio =
-                (reference_wavelet_->samplerate.get() / 4) / frequencies[i];
-            // downsampling_factors[i] = static_cast<int>(pow(2,
-            // int(log2(int(samplerate_ratio)))));
+            double samplerate_ratio;
+            if (optimisation.get() == Optimisation::Standard1 ||
+                optimisation.get() == Optimisation::Aggressive1) {
+                samplerate_ratio =
+                    (reference_wavelet_->samplerate.get() / 8) / frequencies[i];
+            } else {
+                samplerate_ratio =
+                    (reference_wavelet_->samplerate.get() / 4) / frequencies[i];
+            }
             downsampling_factors[i] = static_cast<int>(samplerate_ratio);
             downsampling_factors[i] =
                 (downsampling_factors[i] > 1) ? downsampling_factors[i] : 1;
@@ -259,7 +272,7 @@ void wavelet::Filterbank::init() {
                 wavelets_[i] = std::shared_ptr<MorletWavelet>(
                     new MorletWavelet(*std::static_pointer_cast<MorletWavelet>(
                         reference_wavelet_)));
-                if (optimisation.get() != NONE)
+                if (optimisation.get() != Optimisation::None)
                     wavelets_[i]->samplerate.set(
                         reference_wavelet_->samplerate.get() /
                         double(downsampling_factors[i]));
@@ -274,7 +287,7 @@ void wavelet::Filterbank::init() {
                 wavelets_[i] = std::shared_ptr<PaulWavelet>(
                     new PaulWavelet(*std::static_pointer_cast<PaulWavelet>(
                         reference_wavelet_)));
-                if (optimisation.get() != NONE)
+                if (optimisation.get() != Optimisation::None)
                     wavelets_[i]->samplerate.set(
                         reference_wavelet_->samplerate.get() /
                         double(downsampling_factors[i]));
@@ -290,7 +303,7 @@ void wavelet::Filterbank::init() {
 
     data_.clear();
     filters_.clear();
-    if (optimisation.get() == NONE) {
+    if (optimisation.get() == Optimisation::None) {
         data_[1].resize(wavelets_[wavelets_.size() - 1]->window_size.get());
         downsampling_factors.clear();
     } else {
@@ -331,7 +344,7 @@ void wavelet::Filterbank::update(float value) {
         }
         data_it++;
     }
-    if (optimisation.get() != NONE) {
+    if (optimisation.get() != Optimisation::None) {
         double filtered_value(value);
         for (auto filters_it = filters_.begin(); filters_it != filters_.end();
              filters_it++, data_it++) {
@@ -356,14 +369,15 @@ void wavelet::Filterbank::update(float value) {
     int previous_downrate(1);
     for (std::size_t filter_index = 0; filter_index < wavelets_.size();
          filter_index++) {
-        if (optimisation.get() != NONE) {
+        if (optimisation.get() != Optimisation::None) {
             if (downsampling_factors[filter_index] != previous_downrate) {
                 if (filter_index > 0) data_it++;
                 previous_downrate = downsampling_factors[filter_index];
             }
         }
 
-        if (optimisation.get() == AGRESSIVE) {
+        if (optimisation.get() == Optimisation::Aggressive1 ||
+            optimisation.get() == Optimisation::Aggressive2) {
             if ((frame_index_ % downsampling_factors[filter_index]) != 0) {
                 continue;
             }
@@ -426,6 +440,7 @@ arma::cx_mat wavelet::Filterbank::process(std::vector<double> values) {
 }
 
 arma::cx_mat wavelet::Filterbank::process_online(std::vector<double> values) {
+    reset();
     arma::cx_mat scalogram(values.size(), size());
     for (std::size_t t = 0; t < values.size(); t++) {
         update(values[t]);
@@ -451,9 +466,10 @@ void wavelet::checkLimits<wavelet::Filterbank::Optimisation>(
     wavelet::Filterbank::Optimisation const& limit_min,
     wavelet::Filterbank::Optimisation const& limit_max) {
     if (value < limit_min || value > limit_max)
-        throw std::domain_error("Attribute value out of range. Range: [" +
-                                std::to_string(limit_min) + " ; " +
-                                std::to_string(limit_max) + "]");
+        throw std::domain_error(
+            "Attribute value out of range. Range: [" +
+            std::to_string(static_cast<int>(limit_min)) + " ; " +
+            std::to_string(static_cast<int>(limit_max)) + "]");
 }
 
 template <>
@@ -464,5 +480,5 @@ wavelet::Family wavelet::Attribute<wavelet::Family>::default_limit_max() {
 template <>
 wavelet::Filterbank::Optimisation
 wavelet::Attribute<wavelet::Filterbank::Optimisation>::default_limit_max() {
-    return wavelet::Filterbank::AGRESSIVE;
+    return wavelet::Filterbank::Optimisation::Aggressive2;
 }

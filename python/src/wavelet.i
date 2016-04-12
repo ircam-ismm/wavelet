@@ -117,7 +117,7 @@ def setAttribute(self, attr_name, attr_value):
     Value range: > 1.
 'optimisation' [Optimisation]:
     Optimisation mode the filterbank implementation
-    Value range: {NONE, STANDARD, AGRESSIVE}
+    Value range: {None, Standard1, Standard2, Agressive1, Agressive2}
 'family' [Family]:
     Wavelet Family
     Value range: {MORLET, PAUL}
@@ -246,7 +246,7 @@ def getAttribute(self, attr_name):
     Value range: > 1.
 'optimisation' [Optimisation]:
     Optimisation mode the filterbank implementation
-    Value range: {NONE, STANDARD, AGRESSIVE}
+    Value range: {None, Standard1, Standard2, Agressive1, Agressive2}
 'family' [Family]:
     Wavelet Family
     Value range: {MORLET, PAUL}

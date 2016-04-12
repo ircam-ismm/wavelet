@@ -86,23 +86,35 @@ class Filterbank : public AttributeHandler {
     /**
      * @brief Optimisation level of the filterbank implementation
      */
-    enum Optimisation : unsigned char {
+    enum class Optimisation {
         /**
          * @brief No optimisation (no wavelet downsampling)
          */
-        NONE = 0,
+        None,
 
         /**
          * @brief Standard Optimisation (Wavelet Downsampling with frame-based
          * calculations)
          */
-        STANDARD = 1,
+        Standard1,
+
+        /**
+         * @brief Standard Optimisation (Wavelet Downsampling with frame-based
+         * calculations)
+         */
+        Standard2,
 
         /**
          * @brief Agressive Optimisation (Wavelet Downsampling with Signal
          * Downsampling)
          */
-        AGRESSIVE = 2
+        Aggressive1,
+
+        /**
+         * @brief Agressive Optimisation (Wavelet Downsampling with Signal
+         * Downsampling)
+         */
+        Aggressive2
     };
 
 #pragma mark -
