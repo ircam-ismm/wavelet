@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *

@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -35,8 +39,7 @@
 #define WAVELET_TESTING
 #include "wavelet_all.hpp"
 
-TEST_CASE( "MorletWavelet: Construction & Destruction", "[MorletWavelet]" )
-{
+TEST_CASE("MorletWavelet: Construction & Destruction", "[MorletWavelet]") {
     float samplerate = 100.;
     wavelet::MorletWavelet morlet(samplerate);
     CHECK(morlet.scale.get() == 2. / samplerate);
@@ -45,15 +48,14 @@ TEST_CASE( "MorletWavelet: Construction & Destruction", "[MorletWavelet]" )
     morlet.setDefaultWindowsize();
 }
 
-TEST_CASE( "MorletWavelet: Values (Recursive)", "[MorletWavelet]" )
-{
+TEST_CASE("MorletWavelet: Values (Recursive)", "[MorletWavelet]") {
     float samplerate = 100.;
     wavelet::MorletWavelet morlet(samplerate);
     CHECK(morlet.scale.get() == 2. / samplerate);
     CHECK(morlet.samplerate.get() == samplerate);
     CHECK(morlet.mode.get() == wavelet::Wavelet::RECURSIVE);
     morlet.window_size.set(8);
-    std::vector< std::complex<double> > morlet_ref1(8);
+    std::vector<std::complex<double> > morlet_ref1(8);
     morlet_ref1[0] = std::complex<double>(-0.06031253, 0.03910428);
     morlet_ref1[1] = std::complex<double>(0.05977080, -0.16174061);
     morlet_ref1[2] = std::complex<double>(0.09138012, 0.30891188);
@@ -62,14 +64,14 @@ TEST_CASE( "MorletWavelet: Values (Recursive)", "[MorletWavelet]" )
     morlet_ref1[5] = std::complex<double>(-0.37550965, 0.28051408);
     morlet_ref1[6] = std::complex<double>(0.09138012, -0.30891188);
     morlet_ref1[7] = std::complex<double>(0.05977080, 0.16174061);
-    for (unsigned int i=0; i<morlet.window_size.get(); i++) {
+    for (unsigned int i = 0; i < morlet.window_size.get(); i++) {
         CHECK(morlet.values[i].real() == Approx(morlet_ref1[i].real()));
         CHECK(morlet.values[i].imag() == Approx(morlet_ref1[i].imag()));
     }
-    
+
     morlet.scale.set(1.3);
     morlet.window_size.set(100);
-    std::vector< std::complex<double> > morlet_ref2(100);
+    std::vector<std::complex<double> > morlet_ref2(100);
     morlet_ref2[0] = std::complex<double>(-0.0211099388884, -0.0574240210325);
     morlet_ref2[1] = std::complex<double>(-0.0189416540714, -0.0583639710611);
     morlet_ref2[2] = std::complex<double>(-0.0167313782369, -0.0592188572996);
@@ -170,7 +172,7 @@ TEST_CASE( "MorletWavelet: Values (Recursive)", "[MorletWavelet]" )
     morlet_ref2[97] = std::complex<double>(-0.0144825659197, 0.0599867828565);
     morlet_ref2[98] = std::complex<double>(-0.0167313782369, 0.0592188572996);
     morlet_ref2[99] = std::complex<double>(-0.0189416540714, 0.0583639710611);
-    for (unsigned int i=0; i<morlet.window_size.get(); i++) {
+    for (unsigned int i = 0; i < morlet.window_size.get(); i++) {
         CHECK(morlet.values[i].real() == Approx(morlet_ref2[i].real()));
         CHECK(morlet.values[i].imag() == Approx(morlet_ref2[i].imag()));
     }

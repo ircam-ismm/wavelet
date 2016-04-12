@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -33,21 +37,17 @@
 #include "paul.hpp"
 #include <sstream>
 
-wavelet::PaulWavelet::PaulWavelet(float samplerate) :
-Wavelet(samplerate),
-order(this, DEFAULT_ORDER(), 1)
-{
+wavelet::PaulWavelet::PaulWavelet(float samplerate)
+    : Wavelet(samplerate), order(this, DEFAULT_ORDER(), 1) {
     init();
 }
 
-wavelet::PaulWavelet::PaulWavelet(PaulWavelet const& src) : Wavelet(src)
-{
+wavelet::PaulWavelet::PaulWavelet(PaulWavelet const& src) : Wavelet(src) {
     order = src.order;
     order.set_parent(this);
 }
 
-wavelet::PaulWavelet& wavelet::PaulWavelet::operator=(PaulWavelet const& src)
-{
+wavelet::PaulWavelet& wavelet::PaulWavelet::operator=(PaulWavelet const& src) {
     if (this != &src) {
         Wavelet::_copy(this, src);
         order = src.order;
@@ -56,53 +56,49 @@ wavelet::PaulWavelet& wavelet::PaulWavelet::operator=(PaulWavelet const& src)
     return *this;
 }
 
-wavelet::PaulWavelet::~PaulWavelet()
-{
-}
+wavelet::PaulWavelet::~PaulWavelet() {}
 
-unsigned int wavelet::PaulWavelet::factorial(unsigned int n) const
-{
+unsigned int wavelet::PaulWavelet::factorial(unsigned int n) const {
     unsigned int result(1);
-    for (unsigned int i=2; i<=n; i++) {
+    for (unsigned int i = 2; i <= n; i++) {
         result *= i;
     }
     return result;
 }
 
-std::complex<double> wavelet::PaulWavelet::phi(double arg) const
-{
-    std::complex<double> numer = std::pow(2. * std::complex<double>(0, 1), order.get()) * double(factorial(order.get()));
+std::complex<double> wavelet::PaulWavelet::phi(double arg) const {
+    std::complex<double> numer =
+        std::pow(2. * std::complex<double>(0, 1), order.get()) *
+        double(factorial(order.get()));
     std::complex<double> denum = std::sqrt(M_PI * factorial(2 * order.get()));
-    std::complex<double> second_arg = std::pow(std::complex<double>(1, -arg), -int(order.get() + 1));
-    return (numer / denum) * second_arg
-           * sqrt(1. / double(this->scale.get() * this->samplerate.get())); // normalization
+    std::complex<double> second_arg =
+        std::pow(std::complex<double>(1, -arg), -int(order.get() + 1));
+    return (numer / denum) * second_arg *
+           sqrt(1. / double(this->scale.get() *
+                            this->samplerate.get()));  // normalization
 }
 
-std::complex<double> wavelet::PaulWavelet::phi_spectral(double s_omega) const
-{
+std::complex<double> wavelet::PaulWavelet::phi_spectral(double s_omega) const {
     if (s_omega > 0) {
         double numer = std::pow(2., order.get());
         double denum = std::sqrt(order.get() * factorial(2 * order.get() - 1));
         double second_arg = std::pow(s_omega, order.get());
         double third_arg = std::exp(-s_omega);
-        return(numer / denum) * second_arg * third_arg;
+        return (numer / denum) * second_arg * third_arg;
     } else {
         return 0.;
     }
 }
 
-double wavelet::PaulWavelet::scale2frequency(double scale) const
-{
+double wavelet::PaulWavelet::scale2frequency(double scale) const {
     return (2 * order.get() + 1) / (4. * M_PI * scale);
 }
 
-double wavelet::PaulWavelet::frequency2scale(double frequency) const
-{
+double wavelet::PaulWavelet::frequency2scale(double frequency) const {
     return (2 * order.get() + 1) / (4. * M_PI * frequency);
 }
 
-std::string wavelet::PaulWavelet::info() const
-{
+std::string wavelet::PaulWavelet::info() const {
     std::stringstream infostrstream;
     infostrstream << Wavelet::info();
     infostrstream << "\tType: Morlet\n";
@@ -110,14 +106,12 @@ std::string wavelet::PaulWavelet::info() const
     return infostrstream.str();
 }
 
-double wavelet::PaulWavelet::eFoldingTime() const
-{
+double wavelet::PaulWavelet::eFoldingTime() const {
     return this->scale.get() / M_SQRT2;
 }
 
 void wavelet::PaulWavelet::setAttribute_internal(std::string attr_name,
-                                                    boost::any const& attr_value)
-{
+                                                 boost::any const& attr_value) {
     try {
         Wavelet::setAttribute_internal(attr_name, attr_value);
     } catch (std::out_of_range& e) {
@@ -129,8 +123,8 @@ void wavelet::PaulWavelet::setAttribute_internal(std::string attr_name,
     }
 }
 
-boost::any wavelet::PaulWavelet::getAttribute_internal(std::string attr_name) const
-{
+boost::any wavelet::PaulWavelet::getAttribute_internal(
+    std::string attr_name) const {
     try {
         return Wavelet::getAttribute_internal(attr_name);
     } catch (std::out_of_range& e) {

@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -34,20 +38,17 @@
 #include <sstream>
 
 wavelet::MorletWavelet::MorletWavelet(float samplerate)
-: Wavelet(samplerate),
-omega0(this, DEFAULT_OMEGA0(), 0.)
-{
+    : Wavelet(samplerate), omega0(this, DEFAULT_OMEGA0(), 0.) {
     init();
 }
 
-wavelet::MorletWavelet::MorletWavelet(MorletWavelet const& src) : Wavelet(src)
-{
+wavelet::MorletWavelet::MorletWavelet(MorletWavelet const& src) : Wavelet(src) {
     omega0 = src.omega0;
     omega0.set_parent(this);
 }
 
-wavelet::MorletWavelet& wavelet::MorletWavelet::operator=(MorletWavelet const& src)
-{
+wavelet::MorletWavelet& wavelet::MorletWavelet::operator=(
+    MorletWavelet const& src) {
     if (this != &src) {
         Wavelet::_copy(this, src);
         omega0 = src.omega0;
@@ -56,60 +57,61 @@ wavelet::MorletWavelet& wavelet::MorletWavelet::operator=(MorletWavelet const& s
     return *this;
 }
 
-wavelet::MorletWavelet::~MorletWavelet()
-{
-}
+wavelet::MorletWavelet::~MorletWavelet() {}
 
-std::complex<double> wavelet::MorletWavelet::phi(double arg) const
-{
+std::complex<double> wavelet::MorletWavelet::phi(double arg) const {
     //// Next line: Complete Morlet Wavelet (correction term for low omega0)
-        return std::exp(-0.5 * arg*arg)
-        * (std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg)) - std::exp(-std::complex<double>(0.5 * this->omega0.get() * this->omega0.get(), 0.)))
-        * sqrt(1. / double(this->scale.get() * this->samplerate.get())) * pow(M_PI, -0.25);
-    
-    return std::exp(-0.5 * arg*arg)
-    * std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg))
-    * sqrt(1. / double(this->scale.get() * this->samplerate.get())) * pow(M_PI, -0.25);
+    return std::exp(-0.5 * arg * arg) *
+           (std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg)) -
+            std::exp(-std::complex<double>(
+                0.5 * this->omega0.get() * this->omega0.get(), 0.))) *
+           sqrt(1. / double(this->scale.get() * this->samplerate.get())) *
+           pow(M_PI, -0.25);
+
+    return std::exp(-0.5 * arg * arg) *
+           std::exp(std::complex<double>(0., 1. * this->omega0.get() * arg)) *
+           sqrt(1. / double(this->scale.get() * this->samplerate.get())) *
+           pow(M_PI, -0.25);
 }
 
-std::complex<double> wavelet::MorletWavelet::phi_spectral(double s_omega) const
-{
+std::complex<double> wavelet::MorletWavelet::phi_spectral(
+    double s_omega) const {
     if (s_omega > 0) {
-        return pow(M_PI, -0.25)
-        * exp(-0.5 * (s_omega - this->omega0.get()) * (s_omega - this->omega0.get()))
-        * sqrt(2. * M_PI * this->scale.get() * this->samplerate.get());
+        return pow(M_PI, -0.25) * exp(-0.5 * (s_omega - this->omega0.get()) *
+                                      (s_omega - this->omega0.get())) *
+               sqrt(2. * M_PI * this->scale.get() * this->samplerate.get());
     } else {
         return 0.;
     }
 }
 
-double wavelet::MorletWavelet::scale2frequency(double scale) const
-{
-    return (this->omega0.get() + sqrt(2. + this->omega0.get()*this->omega0.get())) / (4. * M_PI * scale);
+double wavelet::MorletWavelet::scale2frequency(double scale) const {
+    return (this->omega0.get() +
+            sqrt(2. + this->omega0.get() * this->omega0.get())) /
+           (4. * M_PI * scale);
 }
 
-double wavelet::MorletWavelet::frequency2scale(double frequency) const
-{
-    return (this->omega0.get() + sqrt(2 + this->omega0.get()*this->omega0.get())) / (4. * M_PI * frequency);
+double wavelet::MorletWavelet::frequency2scale(double frequency) const {
+    return (this->omega0.get() +
+            sqrt(2 + this->omega0.get() * this->omega0.get())) /
+           (4. * M_PI * frequency);
 }
 
-std::string wavelet::MorletWavelet::info() const
-{
+std::string wavelet::MorletWavelet::info() const {
     std::stringstream infostrstream;
     infostrstream << Wavelet::info();
     infostrstream << "\tType: Morlet\n";
-    infostrstream << "\tOmega0 (carrier frequency): " << this->omega0.get() << "\n";
+    infostrstream << "\tOmega0 (carrier frequency): " << this->omega0.get()
+                  << "\n";
     return infostrstream.str();
 }
 
-double wavelet::MorletWavelet::eFoldingTime() const
-{
+double wavelet::MorletWavelet::eFoldingTime() const {
     return M_SQRT2 * this->scale.get();
 }
 
-void wavelet::MorletWavelet::setAttribute_internal(std::string attr_name,
-                                                    boost::any const& attr_value)
-{
+void wavelet::MorletWavelet::setAttribute_internal(
+    std::string attr_name, boost::any const& attr_value) {
     try {
         Wavelet::setAttribute_internal(attr_name, attr_value);
     } catch (std::out_of_range& e) {
@@ -121,8 +123,8 @@ void wavelet::MorletWavelet::setAttribute_internal(std::string attr_name,
     }
 }
 
-boost::any wavelet::MorletWavelet::getAttribute_internal(std::string attr_name) const
-{
+boost::any wavelet::MorletWavelet::getAttribute_internal(
+    std::string attr_name) const {
     try {
         return Wavelet::getAttribute_internal(attr_name);
     } catch (std::out_of_range& e) {

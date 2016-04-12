@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -35,23 +39,24 @@
 #define WAVELET_TESTING
 #include "wavelet_all.hpp"
 
-TEST_CASE( "Filterbank: Attributes", "[Filterbank]" )
-{
+TEST_CASE("Filterbank: Attributes", "[Filterbank]") {
     float samplerate(100.);
     float frequency_min = 1.;
     float frequency_max = 30.;
     float bands_per_octave = 4;
-    wavelet::Filterbank filterbank(samplerate,
-                                   frequency_min,
-                                   frequency_max,
+    wavelet::Filterbank filterbank(samplerate, frequency_min, frequency_max,
                                    bands_per_octave);
     CHECK(filterbank.getAttribute<float>("samplerate") == samplerate);
     CHECK(filterbank.getAttribute<float>("frequency_min") == frequency_min);
     CHECK(filterbank.getAttribute<float>("frequency_max") == frequency_max);
-    CHECK(filterbank.getAttribute<float>("bands_per_octave") == bands_per_octave);
-    CHECK(filterbank.getAttribute<wavelet::Family>("family") == wavelet::MORLET);
-    CHECK(filterbank.getAttribute<wavelet::Wavelet::WaveletDomain>("mode") == wavelet::Wavelet::RECURSIVE);
-    CHECK(filterbank.getAttribute<float>("delay") == wavelet::Wavelet::DEFAULT_DELAY());
+    CHECK(filterbank.getAttribute<float>("bands_per_octave") ==
+          bands_per_octave);
+    CHECK(filterbank.getAttribute<wavelet::Family>("family") ==
+          wavelet::MORLET);
+    CHECK(filterbank.getAttribute<wavelet::Wavelet::WaveletDomain>("mode") ==
+          wavelet::Wavelet::RECURSIVE);
+    CHECK(filterbank.getAttribute<float>("delay") ==
+          wavelet::Wavelet::DEFAULT_DELAY());
     CHECK_THROWS(filterbank.getAttribute<std::size_t>("window_size"));
     CHECK_THROWS(filterbank.getAttribute<std::size_t>("scale"));
     samplerate = 200.;
@@ -70,15 +75,12 @@ TEST_CASE( "Filterbank: Attributes", "[Filterbank]" )
     CHECK(filterbank.getAttribute<float>("omega0") == 5.);
 }
 
-TEST_CASE( "Filterbank: Scales", "[Filterbank]" )
-{
+TEST_CASE("Filterbank: Scales", "[Filterbank]") {
     float samplerate(100.);
     float frequency_min = 1.;
     float frequency_max = 30.;
     float bands_per_octave = 4;
-    wavelet::Filterbank filter(samplerate,
-                               frequency_min,
-                               frequency_max,
+    wavelet::Filterbank filter(samplerate, frequency_min, frequency_max,
                                bands_per_octave);
     std::vector<double> scales(20);
     scales[0] = 0.02828427;
@@ -101,13 +103,12 @@ TEST_CASE( "Filterbank: Scales", "[Filterbank]" )
     scales[17] = 0.53817371;
     scales[18] = 0.64;
     scales[19] = 0.76109255;
-    for (unsigned int i=0; i<20; i++) {
+    for (unsigned int i = 0; i < 20; i++) {
         CHECK(filter.wavelets_[i]->scale.get() == Approx(scales[i]));
     }
 }
 
-
-//TEST_CASE( "Filterbank: online filtering", "[Filterbank]" )
+// TEST_CASE( "Filterbank: online filtering", "[Filterbank]" )
 //{
 //    float samplerate(100.);
 //    float frequency_min = 0.1;
@@ -318,12 +319,15 @@ TEST_CASE( "Filterbank: Scales", "[Filterbank]" )
 //    results[197] = std::complex<double>(-0.0825469992079, +0.0369886094641);
 //    results[198] = std::complex<double>(-0.078838692093, +0.0385548073453);
 //    results[199] = std::complex<double>(-0.0804311892949, +0.0330438754805);
-//    unsigned int numbands = static_cast<unsigned int>(filter.wavelets_.size());
+//    unsigned int numbands = static_cast<unsigned
+//    int>(filter.wavelets_.size());
 //    for (unsigned int i=0; i<10; ++i) {
 //        filter.update(0.3 + i/10.);
 //        for (unsigned int band=0; band<numbands; band++) {
-//            CHECK(filter.result_complex[band].real() == Approx(results[i * numbands + band].real()));
-//            CHECK(filter.result_complex[band].imag() == Approx(results[i * numbands + band].imag()));
+//            CHECK(filter.result_complex[band].real() == Approx(results[i *
+//            numbands + band].real()));
+//            CHECK(filter.result_complex[band].imag() == Approx(results[i *
+//            numbands + band].imag()));
 //        }
 //    }
 //}

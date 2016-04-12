@@ -6,11 +6,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -36,138 +40,137 @@
 #include "../core/wavelet.hpp"
 
 namespace wavelet {
+/**
+ * @class MorletWavelet
+ * @brief Complex Morlet Wavelet
+ *
+ * @details the Morlet wavelet is a complex plane wave windowed by a gaussian
+ * envelope.@n
+ * see Wikipedia: http://en.wikipedia.org/wiki/Morlet_wavelet
+ */
+class MorletWavelet : public Wavelet {
+  public:
     /**
-     * @class MorletWavelet
-     * @brief Complex Morlet Wavelet
-     *
-     * @details the Morlet wavelet is a complex plane wave windowed by a gaussian envelope.@n
-     * see Wikipedia: http://en.wikipedia.org/wiki/Morlet_wavelet
+     * @brief Default value of the Carrier frequency
      */
-    class MorletWavelet : public Wavelet {
-    public:
-        
-        /**
-         * @brief Default value of the Carrier frequency
-         */
-        static const float DEFAULT_OMEGA0() { return 5.; }
-        
+    static const float DEFAULT_OMEGA0() { return 5.; }
+
 #pragma mark -
 #pragma mark === Public Interface ===
 #pragma mark > Constructors
-        /** @name Constructors */
-        ///@{
-        
-        /**
-         * @brief Constructor
-         * @param samplerate wavelet sampling rate
-         */
-        MorletWavelet(float samplerate);
-        
-        /**
-         * @brief Copy Constructor
-         * @param src source Wavelet
-         */
-        MorletWavelet(MorletWavelet const& src);
-        
-        /**
-         * @brief Assignment operator
-         * @param src source Wavelet
-         */
-        MorletWavelet& operator=(MorletWavelet const& src);
-        
-        /**
-         * @brief Constructor
-         */
-        virtual ~MorletWavelet();
-        
-        ///@}
-        
+    /** @name Constructors */
+    ///@{
+
+    /**
+     * @brief Constructor
+     * @param samplerate wavelet sampling rate
+     */
+    MorletWavelet(float samplerate);
+
+    /**
+     * @brief Copy Constructor
+     * @param src source Wavelet
+     */
+    MorletWavelet(MorletWavelet const& src);
+
+    /**
+     * @brief Assignment operator
+     * @param src source Wavelet
+     */
+    MorletWavelet& operator=(MorletWavelet const& src);
+
+    /**
+     * @brief Constructor
+     */
+    virtual ~MorletWavelet();
+
+///@}
+
 #pragma mark > Utilities
-        /** @name Utilities */
-        ///@{
-        
-        /**
-         * @brief get info on the current configuration
-         * @return information string
-         */
-        virtual std::string info() const;
-        
-        ///@}
-        
+    /** @name Utilities */
+    ///@{
+
+    /**
+     * @brief get info on the current configuration
+     * @return information string
+     */
+    virtual std::string info() const;
+
+///@}
+
 #pragma mark > Core Wavelet Methods
-        /** @name Core Wavelet Methods */
-        ///@{
-        
-        /**
-         * @brief convert scale to fourier frequency (Hz)
-         * @return equivalent fourier frequency (Hz)
-         */
-        virtual double scale2frequency(double scale) const;
-        
-        /**
-         * @brief convert fourier frequency (Hz) to scale
-         * @return equivalent scale
-         */
-        virtual double frequency2scale(double frequency) const;
-        
-        /**
-         * @brief compute the critical time of the wavelet
-         * @return e-folding time at the current scale in seconds
-         */
-        virtual double eFoldingTime() const;
-        
-        /**
-         * @brief rescaled wavelet function
-         * @param arg wavelet argument [(n' - n) * delta_t / scale]
-         * @return value of the rescaled wavelet for the given argument
-         */
-        virtual std::complex<double> phi(double arg) const;
-        
-        /**
-         * @brief rescaled wavelet function in the spectral domain
-         * @param s_omega spectral argument (scale * omega)
-         * @return value of the rescaled wavelet spectrum for the given argument
-         */
-        virtual std::complex<double> phi_spectral(double s_omega) const;
-        
-        ///@}
-        
-        
+    /** @name Core Wavelet Methods */
+    ///@{
+
+    /**
+     * @brief convert scale to fourier frequency (Hz)
+     * @return equivalent fourier frequency (Hz)
+     */
+    virtual double scale2frequency(double scale) const;
+
+    /**
+     * @brief convert fourier frequency (Hz) to scale
+     * @return equivalent scale
+     */
+    virtual double frequency2scale(double frequency) const;
+
+    /**
+     * @brief compute the critical time of the wavelet
+     * @return e-folding time at the current scale in seconds
+     */
+    virtual double eFoldingTime() const;
+
+    /**
+     * @brief rescaled wavelet function
+     * @param arg wavelet argument [(n' - n) * delta_t / scale]
+     * @return value of the rescaled wavelet for the given argument
+     */
+    virtual std::complex<double> phi(double arg) const;
+
+    /**
+     * @brief rescaled wavelet function in the spectral domain
+     * @param s_omega spectral argument (scale * omega)
+     * @return value of the rescaled wavelet spectrum for the given argument
+     */
+    virtual std::complex<double> phi_spectral(double s_omega) const;
+
+///@}
+
 #pragma mark -
 #pragma mark === Public Attributes ===
-        /**
-         * @brief Carrier Frequency
-         */
-        Attribute<float> omega0;
-        
-        ///@cond DEVDOC
+    /**
+     * @brief Carrier Frequency
+     */
+    Attribute<float> omega0;
+
+///@cond DEVDOC
 #ifndef WAVELET_TESTING
-    protected:
+  protected:
 #endif
 #pragma mark -
 #pragma mark === Protected Methods ===
-        /**
-         * @brief set attribute value by name
-         * @param attr_name attribute name
-         * @param attr_value attribute value
-         * @throws out_of_range if the attribute does not exist
-         */
-        virtual void setAttribute_internal(std::string attr_name,
-                                            boost::any const& attr_value);
-        
-        /**
-         * @brief get attribute value by name
-         * @param attr_name attribute name
-         * @return attribute value
-         * @throws out_of_range if the attribute does not exist
-         */
-        virtual boost::any getAttribute_internal(std::string attr_name) const;
-        
+    /**
+     * @brief set attribute value by name
+     * @param attr_name attribute name
+     * @param attr_value attribute value
+     * @throws out_of_range if the attribute does not exist
+     */
+    virtual void setAttribute_internal(std::string attr_name,
+                                       boost::any const& attr_value);
+
+    /**
+     * @brief get attribute value by name
+     * @param attr_name attribute name
+     * @return attribute value
+     * @throws out_of_range if the attribute does not exist
+     */
+    virtual boost::any getAttribute_internal(std::string attr_name) const;
+
 #pragma mark -
 #pragma mark === Protected Attributes ===
-        
-        ///@endcond
-    };
+
+    ///@endcond
+};
 }
 
 #endif

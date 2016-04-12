@@ -4,11 +4,15 @@
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
  *
- * This code has been authored by <a href="http://julesfrancoise.com">Jules Françoise</a>
- * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European project,
+ * This code has been authored by <a href="http://julesfrancoise.com">Jules
+ * Françoise</a>
+ * in the framework of the <a href="http://skatvg.iuav.it/">SkAT-VG</a> European
+ * project,
  * with <a href="frederic-bevilacqua.net">Frederic Bevilacqua</a>, in the
- * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of the
- * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS - UPMC (2011-2015).
+ * <a href="http://ismm.ircam.fr">Sound Music Movement Interaction</a> team of
+ * the
+ * <a href="http://www.ircam.fr/stms.html?&L=1">STMS Lab</a> - IRCAM - CNRS -
+ * UPMC (2011-2015).
  *
  * Copyright (C) 2015 Ircam-Centre Pompidou.
  *
@@ -37,23 +41,24 @@
  * @brief Check for vector approximate equality
  */
 template <typename T>
-void CHECK_VECTOR_APPROX(std::vector<T> const& a, std::vector<T> const& b, double epsilon=-1.) {
+void CHECK_VECTOR_APPROX(std::vector<T> const& a, std::vector<T> const& b,
+                         double epsilon = -1.) {
     REQUIRE(a.size() == b.size());
     std::string errormsg = "CHECK_VECTOR_APPROX:\n{";
     std::string errormsg2 = "}\n==\n{";
     std::ostringstream convert;
     std::ostringstream convert2;
-    for (std::size_t i=0; i<a.size(); ++i) {
+    for (std::size_t i = 0; i < a.size(); ++i) {
         convert << a[i] << " ";
         convert2 << b[i] << " ";
     }
-    INFO(errormsg + convert.str() + errormsg2 + convert2.str() );
+    INFO(errormsg + convert.str() + errormsg2 + convert2.str());
     if (epsilon > 0.0) {
-        for (std::size_t i=0; i<a.size(); ++i) {
+        for (std::size_t i = 0; i < a.size(); ++i) {
             REQUIRE(a[i] == Approx(b[i]).epsilon(epsilon));
         }
     } else {
-        for (std::size_t i=0; i<a.size(); ++i) {
+        for (std::size_t i = 0; i < a.size(); ++i) {
             REQUIRE(a[i] == Approx(b[i]));
         }
     }
