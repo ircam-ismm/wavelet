@@ -67,6 +67,7 @@ void wavelet::checkLimits<char>(char const& value,
         throw std::domain_error("Attribute value out of range. Range: [" +  std::to_string(limitMin) + " ; " + std::to_string(limitMax) + "]");
 }
 
+#if ((_WIN32 && _WIN64) || !_WIN32)
 template <>
 void wavelet::checkLimits<unsigned int>(unsigned int const& value,
                                         unsigned int const& limitMin,
@@ -75,6 +76,7 @@ void wavelet::checkLimits<unsigned int>(unsigned int const& value,
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +  std::to_string(limitMin) + " ; " + std::to_string(limitMax) + "]");
 }
+#endif
 
 template <>
 void wavelet::checkLimits<int>(int const& value,

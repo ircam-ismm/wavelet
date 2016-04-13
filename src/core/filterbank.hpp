@@ -39,6 +39,7 @@
 #include "../wavelets/paul.hpp"
 #include <map>
 #include <boost/circular_buffer.hpp>
+#include <boost/throw_exception.hpp>
 #ifdef USE_ARMA
 #include <armadillo>
 #endif
