@@ -140,9 +140,10 @@ std::vector<int> woma::Filterbank::delaysInSamples() const {
     unsigned int i(0);
     for (auto& wav : wavelets_) {
         if (optimisation.get() != Optimisation::None) {
-            delays[i] = wav->delay.get() * wav->eFoldingTime() *
-                            reference_wavelet_->samplerate.get() +
-                        downsampling_factors[i];
+            delays[i] =
+                wav->delay.get() * wav->eFoldingTime() *
+                    reference_wavelet_->samplerate.get() +
+                ((downsampling_factors[i] > 1) ? downsampling_factors[i] : 0);
             i++;
         } else {
             delays[i++] = wav->delay.get() * wav->eFoldingTime() *
