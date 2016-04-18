@@ -43,7 +43,7 @@
 #include <stdexcept>
 #include <vector>
 
-namespace wavelet {
+namespace woma {
 
 #pragma mark -
 #pragma mark === Functions checkLimits ===

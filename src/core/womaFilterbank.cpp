@@ -1,5 +1,5 @@
 /*
- * filterbank.cpp
+ * womaFilterbank.cpp
  *
  * Wavelet Filter Bank
  *
@@ -34,11 +34,11 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "filterbank.hpp"
+#include "womaFilterbank.hpp"
 #include <memory>
 
-wavelet::Filterbank::Filterbank(float samplerate_, float frequency_min_,
-                                float frequency_max_, float bands_per_octave_)
+woma::Filterbank::Filterbank(float samplerate_, float frequency_min_,
+                             float frequency_max_, float bands_per_octave_)
     : frequency_min(this, frequency_min_, 1e-12, frequency_max_),
       frequency_max(this, frequency_max_, frequency_min_, samplerate_ / 2.),
       bands_per_octave(this, bands_per_octave_, 1.),
@@ -46,12 +46,12 @@ wavelet::Filterbank::Filterbank(float samplerate_, float frequency_min_,
       family(this, DEFAULT_FAMILY),
       rescale(this, true) {
     switch (family.get()) {
-        case wavelet::MORLET:
+        case woma::Family::Morlet:
             reference_wavelet_ =
                 std::unique_ptr<MorletWavelet>(new MorletWavelet(samplerate_));
             break;
 
-        case wavelet::PAUL:
+        case woma::Family::Paul:
             reference_wavelet_ =
                 std::unique_ptr<PaulWavelet>(new PaulWavelet(samplerate_));
             break;
@@ -64,7 +64,7 @@ wavelet::Filterbank::Filterbank(float samplerate_, float frequency_min_,
     init();
 }
 
-wavelet::Filterbank::Filterbank(Filterbank const& src) {
+woma::Filterbank::Filterbank(Filterbank const& src) {
     this->frequency_min = src.frequency_min;
     this->frequency_min.set_parent(this);
     this->frequency_max = src.frequency_max;
@@ -78,13 +78,13 @@ wavelet::Filterbank::Filterbank(Filterbank const& src) {
     this->rescale = src.rescale;
     this->rescale.set_parent(this);
     switch (this->family.get()) {
-        case wavelet::MORLET:
+        case woma::Family::Morlet:
             this->reference_wavelet_ = std::unique_ptr<MorletWavelet>(
                 new MorletWavelet(*std::static_pointer_cast<MorletWavelet>(
                     src.reference_wavelet_)));
             break;
 
-        case wavelet::PAUL:
+        case woma::Family::Paul:
             this->reference_wavelet_ = std::unique_ptr<PaulWavelet>(
                 new PaulWavelet(*std::static_pointer_cast<PaulWavelet>(
                     src.reference_wavelet_)));
@@ -97,7 +97,7 @@ wavelet::Filterbank::Filterbank(Filterbank const& src) {
     this->init();
 }
 
-wavelet::Filterbank& wavelet::Filterbank::operator=(Filterbank const& src) {
+woma::Filterbank& woma::Filterbank::operator=(Filterbank const& src) {
     if (this != &src) {
         this->frequency_min = src.frequency_min;
         this->frequency_min.set_parent(this);
@@ -119,9 +119,9 @@ wavelet::Filterbank& wavelet::Filterbank::operator=(Filterbank const& src) {
     return *this;
 }
 
-wavelet::Filterbank::~Filterbank() {}
+woma::Filterbank::~Filterbank() {}
 
-std::string wavelet::Filterbank::info() const {
+std::string woma::Filterbank::info() const {
     std::stringstream infostrstream;
     infostrstream << "Wavelet Filter:\n";
     infostrstream << "\tFrequency Range: " << frequency_min.get() << " "
@@ -135,7 +135,7 @@ std::string wavelet::Filterbank::info() const {
     return infostrstream.str();
 }
 
-std::vector<int> wavelet::Filterbank::delaysInSamples() const {
+std::vector<int> woma::Filterbank::delaysInSamples() const {
     std::vector<int> delays(size());
     unsigned int i(0);
     for (auto& wav : wavelets_) {
@@ -152,18 +152,18 @@ std::vector<int> wavelet::Filterbank::delaysInSamples() const {
     return delays;
 }
 
-std::size_t wavelet::Filterbank::size() const { return wavelets_.size(); }
+std::size_t woma::Filterbank::size() const { return wavelets_.size(); }
 
-void wavelet::Filterbank::onAttributeChange(AttributeBase* attr_pointer) {
+void woma::Filterbank::onAttributeChange(AttributeBase* attr_pointer) {
     if (attr_pointer == &family) {
         float samplerate = reference_wavelet_->samplerate.get();
         switch (family.get()) {
-            case wavelet::MORLET:
+            case woma::Family::Morlet:
                 reference_wavelet_ = std::unique_ptr<MorletWavelet>(
                     new MorletWavelet(samplerate));
                 break;
 
-            case wavelet::PAUL:
+            case woma::Family::Paul:
                 reference_wavelet_ =
                     std::unique_ptr<PaulWavelet>(new PaulWavelet(samplerate));
                 break;
@@ -177,8 +177,8 @@ void wavelet::Filterbank::onAttributeChange(AttributeBase* attr_pointer) {
     attr_pointer->changed = false;
 }
 
-void wavelet::Filterbank::setAttribute_internal(std::string attr_name,
-                                                boost::any const& attr_value) {
+void woma::Filterbank::setAttribute_internal(std::string attr_name,
+                                             boost::any const& attr_value) {
     if (attr_name == "frequency_min") {
         frequency_min.set(boost::any_cast<float>(attr_value));
         frequency_max.set_limit_min(frequency_min.get());
@@ -209,7 +209,7 @@ void wavelet::Filterbank::setAttribute_internal(std::string attr_name,
     }
 }
 
-boost::any wavelet::Filterbank::getAttribute_internal(
+boost::any woma::Filterbank::getAttribute_internal(
     std::string attr_name) const {
     if (attr_name == "frequency_min") return boost::any(frequency_min.get());
     if (attr_name == "frequency_max") return boost::any(frequency_max.get());
@@ -224,7 +224,7 @@ boost::any wavelet::Filterbank::getAttribute_internal(
                              "does not exist or is not shared among filters.");
 }
 
-void wavelet::Filterbank::init() {
+void woma::Filterbank::init() {
     // Compute Scales of the Filterbank
     double scale_0 = 2. / reference_wavelet_->samplerate.get();
     double min_scale = reference_wavelet_->frequency2scale(frequency_max.get());
@@ -266,7 +266,7 @@ void wavelet::Filterbank::init() {
 
     // Allocate and initialize wavelets
     switch (family.get()) {
-        case wavelet::MORLET:
+        case woma::Family::Morlet:
             wavelets_.resize(max_index - min_index);
             for (unsigned int i = 0; i < scales.size(); i++) {
                 wavelets_[i] = std::shared_ptr<MorletWavelet>(
@@ -281,7 +281,7 @@ void wavelet::Filterbank::init() {
             }
             break;
 
-        case wavelet::PAUL:
+        case woma::Family::Paul:
             wavelets_.resize(max_index - min_index);
             for (unsigned int i = 0; i < scales.size(); i++) {
                 wavelets_[i] = std::shared_ptr<PaulWavelet>(
@@ -323,14 +323,14 @@ void wavelet::Filterbank::init() {
     result_power.assign(wavelets_.size(), 0.0);
 }
 
-void wavelet::Filterbank::reset() {
+void woma::Filterbank::reset() {
     for (auto data_it = data_.begin(); data_it != data_.end(); data_it++) {
         data_it->second.clear();
     }
     frame_index_ = 0;
 }
 
-void wavelet::Filterbank::update(float value) {
+void woma::Filterbank::update(float value) {
     // Update Buffers
     auto data_it = data_.begin();
     if (data_it->first == 1) {
@@ -416,7 +416,7 @@ void wavelet::Filterbank::update(float value) {
 }
 
 #ifdef USE_ARMA
-arma::cx_mat wavelet::Filterbank::process(std::vector<double> values) {
+arma::cx_mat woma::Filterbank::process(std::vector<double> values) {
     //// SPECTRAL METHOD
     arma::cx_vec sig_spectral =
         arma::fft(arma::conv_to<arma::vec>::from(values));
@@ -439,7 +439,7 @@ arma::cx_mat wavelet::Filterbank::process(std::vector<double> values) {
     return scalogram;
 }
 
-arma::cx_mat wavelet::Filterbank::process_online(std::vector<double> values) {
+arma::cx_mat woma::Filterbank::process_online(std::vector<double> values) {
     reset();
     arma::cx_mat scalogram(values.size(), size());
     for (std::size_t t = 0; t < values.size(); t++) {
@@ -451,20 +451,9 @@ arma::cx_mat wavelet::Filterbank::process_online(std::vector<double> values) {
 #endif
 
 template <>
-void wavelet::checkLimits<wavelet::Family>(wavelet::Family const& value,
-                                           wavelet::Family const& limit_min,
-                                           wavelet::Family const& limit_max) {
-    if (value < limit_min || value > limit_max)
-        throw std::domain_error("Attribute value out of range. Range: [" +
-                                std::to_string(limit_min) + " ; " +
-                                std::to_string(limit_max) + "]");
-}
-
-template <>
-void wavelet::checkLimits<wavelet::Filterbank::Optimisation>(
-    wavelet::Filterbank::Optimisation const& value,
-    wavelet::Filterbank::Optimisation const& limit_min,
-    wavelet::Filterbank::Optimisation const& limit_max) {
+void woma::checkLimits<woma::Family>(woma::Family const& value,
+                                     woma::Family const& limit_min,
+                                     woma::Family const& limit_max) {
     if (value < limit_min || value > limit_max)
         throw std::domain_error(
             "Attribute value out of range. Range: [" +
@@ -473,12 +462,24 @@ void wavelet::checkLimits<wavelet::Filterbank::Optimisation>(
 }
 
 template <>
-wavelet::Family wavelet::Attribute<wavelet::Family>::default_limit_max() {
-    return wavelet::PAUL;
+void woma::checkLimits<woma::Filterbank::Optimisation>(
+    woma::Filterbank::Optimisation const& value,
+    woma::Filterbank::Optimisation const& limit_min,
+    woma::Filterbank::Optimisation const& limit_max) {
+    if (value < limit_min || value > limit_max)
+        throw std::domain_error(
+            "Attribute value out of range. Range: [" +
+            std::to_string(static_cast<int>(limit_min)) + " ; " +
+            std::to_string(static_cast<int>(limit_max)) + "]");
 }
 
 template <>
-wavelet::Filterbank::Optimisation
-wavelet::Attribute<wavelet::Filterbank::Optimisation>::default_limit_max() {
-    return wavelet::Filterbank::Optimisation::Aggressive2;
+woma::Family woma::Attribute<woma::Family>::default_limit_max() {
+    return woma::Family::Paul;
+}
+
+template <>
+woma::Filterbank::Optimisation
+woma::Attribute<woma::Filterbank::Optimisation>::default_limit_max() {
+    return woma::Filterbank::Optimisation::Aggressive2;
 }

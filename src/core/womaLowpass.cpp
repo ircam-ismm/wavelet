@@ -1,5 +1,5 @@
 /*
- * lowpass.cpp
+ * womaLowpass.cpp
  *
  * Chebyshev Type 1 low-pass Filter
  *
@@ -33,25 +33,24 @@
  * You should have received a copy of the GNU General Public License
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "lowpass.hpp"
+#include "womaLowpass.hpp"
 #include <cmath>
 #include <iostream>
 
-wavelet::LowpassFilter::LowpassFilter(double cutoff_, int order_,
-                                      double rippleLevel_)
+woma::LowpassFilter::LowpassFilter(double cutoff_, int order_,
+                                   double rippleLevel_)
     : cutoff(this, cutoff_, 0., 1.),
       order(this, order_, 1),
       rippleLevel(this, rippleLevel_) {
     init();
 }
 
-wavelet::LowpassFilter::LowpassFilter(LowpassFilter const& src) {
+woma::LowpassFilter::LowpassFilter(LowpassFilter const& src) {
     b = src.b;
     a = src.a;
 }
 
-wavelet::LowpassFilter& wavelet::LowpassFilter::operator=(
-    LowpassFilter const& src) {
+woma::LowpassFilter& woma::LowpassFilter::operator=(LowpassFilter const& src) {
     if (this != &src) {
         b = src.b;
         a = src.a;
@@ -59,20 +58,20 @@ wavelet::LowpassFilter& wavelet::LowpassFilter::operator=(
     return *this;
 }
 
-wavelet::LowpassFilter::~LowpassFilter() {}
+woma::LowpassFilter::~LowpassFilter() {}
 
-void wavelet::LowpassFilter::onAttributeChange(AttributeBase* attr_pointer) {
+void woma::LowpassFilter::onAttributeChange(AttributeBase* attr_pointer) {
     init();
     attr_pointer->changed = false;
 }
 
-void wavelet::LowpassFilter::init() {
+void woma::LowpassFilter::init() {
     cheby1(order.get(), rippleLevel.get(), cutoff.get());
     z.assign(order.get(), 0.);
 }
 
-void wavelet::LowpassFilter::cheby1(int filter_order, double ripple_db,
-                                    double cutoff) {
+void woma::LowpassFilter::cheby1(int filter_order, double ripple_db,
+                                 double cutoff) {
     if (cutoff <= 0. || cutoff > 1.)
         throw std::invalid_argument("Cutoff must be between 0 and 1");
     std::vector<std::complex<double> > p;
@@ -91,8 +90,8 @@ void wavelet::LowpassFilter::cheby1(int filter_order, double ripple_db,
     zpk2tf(z, p, k);
 }
 
-double wavelet::LowpassFilter::cheby1ap(int filter_order, double ripple_db,
-                                        std::vector<std::complex<double> >& p) {
+double woma::LowpassFilter::cheby1ap(int filter_order, double ripple_db,
+                                     std::vector<std::complex<double> >& p) {
     // Ripple factor (epsilon)
     double eps = std::sqrt(std::pow(10., 0.1 * ripple_db) - 1.0);
     double mu = 1.0 / filter_order * asinh(1 / eps);
@@ -116,8 +115,8 @@ double wavelet::LowpassFilter::cheby1ap(int filter_order, double ripple_db,
     return k;
 }
 
-double wavelet::LowpassFilter::_zpklp2lp(std::vector<std::complex<double> >& p,
-                                         double k, double wo) {
+double woma::LowpassFilter::_zpklp2lp(std::vector<std::complex<double> >& p,
+                                      double k, double wo) {
     for (int i = 0; i < p.size(); i++) {
         p[i] *= wo;
     }
@@ -128,9 +127,9 @@ double wavelet::LowpassFilter::_zpklp2lp(std::vector<std::complex<double> >& p,
     return k * std::pow(wo, degree);
 }
 
-double wavelet::LowpassFilter::_zpkbilinear(
-    std::vector<std::complex<double> >& z,
-    std::vector<std::complex<double> >& p, double k) {
+double woma::LowpassFilter::_zpkbilinear(std::vector<std::complex<double> >& z,
+                                         std::vector<std::complex<double> >& p,
+                                         double k) {
     double fs2 = 4.0;
 
     // Any zeros that were at infinity get moved to the Nyquist frequency
@@ -149,9 +148,9 @@ double wavelet::LowpassFilter::_zpkbilinear(
     return k * factor_denum.real();
 }
 
-void wavelet::LowpassFilter::convolve(
-    std::vector<std::complex<double> > x, std::vector<std::complex<double> > y,
-    std::vector<std::complex<double> >& result) {
+void woma::LowpassFilter::convolve(std::vector<std::complex<double> > x,
+                                   std::vector<std::complex<double> > y,
+                                   std::vector<std::complex<double> >& result) {
     if (y.size() > x.size()) {
         x.swap(y);
     }
@@ -170,7 +169,7 @@ void wavelet::LowpassFilter::convolve(
     }
 }
 
-void wavelet::LowpassFilter::poly(
+void woma::LowpassFilter::poly(
     std::vector<std::complex<double> > sequence_of_zeros,
     std::vector<std::complex<double> >& result) {
     result.assign(1, 1.);
@@ -183,9 +182,9 @@ void wavelet::LowpassFilter::poly(
     }
 }
 
-void wavelet::LowpassFilter::zpk2tf(std::vector<std::complex<double> >& z,
-                                    std::vector<std::complex<double> >& p,
-                                    double k) {
+void woma::LowpassFilter::zpk2tf(std::vector<std::complex<double> >& z,
+                                 std::vector<std::complex<double> >& p,
+                                 double k) {
     std::vector<std::complex<double> > b_tmp;
     std::vector<std::complex<double> > a_tmp;
     poly(z, b_tmp);
@@ -200,7 +199,7 @@ void wavelet::LowpassFilter::zpk2tf(std::vector<std::complex<double> >& z,
     }
 }
 
-double wavelet::LowpassFilter::filter(double value) {
+double woma::LowpassFilter::filter(double value) {
     double filtered_value;
     filtered_value = b[0] * value + z[0];
     for (unsigned int i = 0; i < order.get() - 1; i++) {

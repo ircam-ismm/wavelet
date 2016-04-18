@@ -37,4 +37,4 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #define WAVELET_TESTING
-#include "wavelet_all.hpp"
+#include "woma.hpp"

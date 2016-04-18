@@ -37,26 +37,26 @@
 #include "catch.hpp"
 #include "catch_utilities.hpp"
 #define WAVELET_TESTING
-#include "wavelet_all.hpp"
+#include "woma.hpp"
 
 TEST_CASE("Filterbank: Attributes", "[Filterbank]") {
     float samplerate(100.);
     float frequency_min = 1.;
     float frequency_max = 30.;
     float bands_per_octave = 4;
-    wavelet::Filterbank filterbank(samplerate, frequency_min, frequency_max,
-                                   bands_per_octave);
+    woma::Filterbank filterbank(samplerate, frequency_min, frequency_max,
+                                bands_per_octave);
     CHECK(filterbank.getAttribute<float>("samplerate") == samplerate);
     CHECK(filterbank.getAttribute<float>("frequency_min") == frequency_min);
     CHECK(filterbank.getAttribute<float>("frequency_max") == frequency_max);
     CHECK(filterbank.getAttribute<float>("bands_per_octave") ==
           bands_per_octave);
-    CHECK(filterbank.getAttribute<wavelet::Family>("family") ==
-          wavelet::MORLET);
-    CHECK(filterbank.getAttribute<wavelet::Wavelet::WaveletDomain>("mode") ==
-          wavelet::Wavelet::RECURSIVE);
+    CHECK(filterbank.getAttribute<woma::Family>("family") ==
+          woma::Family::Morlet);
+    CHECK(filterbank.getAttribute<woma::Wavelet::WaveletDomain>("mode") ==
+          woma::Wavelet::WaveletDomain::RECURSIVE);
     CHECK(filterbank.getAttribute<float>("delay") ==
-          wavelet::Wavelet::DEFAULT_DELAY());
+          woma::Wavelet::DEFAULT_DELAY());
     CHECK_THROWS(filterbank.getAttribute<std::size_t>("window_size"));
     CHECK_THROWS(filterbank.getAttribute<std::size_t>("scale"));
     samplerate = 200.;
@@ -80,8 +80,8 @@ TEST_CASE("Filterbank: Scales", "[Filterbank]") {
     float frequency_min = 1.;
     float frequency_max = 30.;
     float bands_per_octave = 4;
-    wavelet::Filterbank filter(samplerate, frequency_min, frequency_max,
-                               bands_per_octave);
+    woma::Filterbank filter(samplerate, frequency_min, frequency_max,
+                            bands_per_octave);
     std::vector<double> scales(20);
     scales[0] = 0.02828427;
     scales[1] = 0.03363586;
@@ -114,7 +114,7 @@ TEST_CASE("Filterbank: Scales", "[Filterbank]") {
 //    float frequency_min = 0.1;
 //    float frequency_max = 50.;
 //    float bands_per_octave = 32;
-//    wavelet::Filterbank filter(samplerate,
+//    woma::Filterbank filter(samplerate,
 //                               frequency_min,
 //                               frequency_max,
 //                               bands_per_octave);

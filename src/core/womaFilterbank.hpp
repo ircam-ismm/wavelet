@@ -1,5 +1,5 @@
 /*
- * filterbank.h
+ * womaFilterbank.h
  *
  * Wavelet Filter Bank
  *
@@ -34,41 +34,41 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef filterbank_h
-#define filterbank_h
+#ifndef womaFilterbank_h
+#define womaFilterbank_h
 
-#include "../wavelets/morlet.hpp"
-#include "../wavelets/paul.hpp"
-#include "lowpass.hpp"
-#include "wavelet.hpp"
+#include "../wavelets/womaMorlet.hpp"
+#include "../wavelets/womaPaul.hpp"
+#include "womaLowpass.hpp"
+#include "womaWavelet.hpp" "
 #include <boost/circular_buffer.hpp>
 #include <map>
 #ifdef USE_ARMA
 #include <armadillo>
 #endif
 
-namespace wavelet {
+namespace woma {
 /**
  * @brief Implemented wavelet families
  */
-enum Family : unsigned char {
+enum class Family {
     /**
      * @brief Morlet Wavelet
      * @see MorletWavelet
      */
-    MORLET = 0,
+    Morlet = 0,
 
     /**
      * @brief Paul Wavelet
      * @see PaulWavelet
      */
-    PAUL = 1
+    Paul = 1
 };
 
 /**
  * @brief Default Wavelet family
  */
-const Family DEFAULT_FAMILY = MORLET;
+const Family DEFAULT_FAMILY = Family::Morlet;
 
 /**
  * @class Filterbank

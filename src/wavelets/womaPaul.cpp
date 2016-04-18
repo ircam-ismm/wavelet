@@ -1,5 +1,5 @@
 /*
- * paul.cpp
+ * womaPaul.cpp
  *
  * Paul Wavelet
  *
@@ -34,20 +34,20 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "paul.hpp"
+#include "womaPaul.hpp"
 #include <sstream>
 
-wavelet::PaulWavelet::PaulWavelet(float samplerate)
+woma::PaulWavelet::PaulWavelet(float samplerate)
     : Wavelet(samplerate), order(this, DEFAULT_ORDER(), 1) {
     init();
 }
 
-wavelet::PaulWavelet::PaulWavelet(PaulWavelet const& src) : Wavelet(src) {
+woma::PaulWavelet::PaulWavelet(PaulWavelet const& src) : Wavelet(src) {
     order = src.order;
     order.set_parent(this);
 }
 
-wavelet::PaulWavelet& wavelet::PaulWavelet::operator=(PaulWavelet const& src) {
+woma::PaulWavelet& woma::PaulWavelet::operator=(PaulWavelet const& src) {
     if (this != &src) {
         Wavelet::_copy(this, src);
         order = src.order;
@@ -56,9 +56,9 @@ wavelet::PaulWavelet& wavelet::PaulWavelet::operator=(PaulWavelet const& src) {
     return *this;
 }
 
-wavelet::PaulWavelet::~PaulWavelet() {}
+woma::PaulWavelet::~PaulWavelet() {}
 
-unsigned int wavelet::PaulWavelet::factorial(unsigned int n) const {
+unsigned int woma::PaulWavelet::factorial(unsigned int n) const {
     unsigned int result(1);
     for (unsigned int i = 2; i <= n; i++) {
         result *= i;
@@ -66,7 +66,7 @@ unsigned int wavelet::PaulWavelet::factorial(unsigned int n) const {
     return result;
 }
 
-std::complex<double> wavelet::PaulWavelet::phi(double arg) const {
+std::complex<double> woma::PaulWavelet::phi(double arg) const {
     std::complex<double> numer =
         std::pow(2. * std::complex<double>(0, 1), order.get()) *
         double(factorial(order.get()));
@@ -78,7 +78,7 @@ std::complex<double> wavelet::PaulWavelet::phi(double arg) const {
                             this->samplerate.get()));  // normalization
 }
 
-std::complex<double> wavelet::PaulWavelet::phi_spectral(double s_omega) const {
+std::complex<double> woma::PaulWavelet::phi_spectral(double s_omega) const {
     if (s_omega > 0) {
         double numer = std::pow(2., order.get());
         double denum = std::sqrt(order.get() * factorial(2 * order.get() - 1));
@@ -90,15 +90,15 @@ std::complex<double> wavelet::PaulWavelet::phi_spectral(double s_omega) const {
     }
 }
 
-double wavelet::PaulWavelet::scale2frequency(double scale) const {
+double woma::PaulWavelet::scale2frequency(double scale) const {
     return (2 * order.get() + 1) / (4. * M_PI * scale);
 }
 
-double wavelet::PaulWavelet::frequency2scale(double frequency) const {
+double woma::PaulWavelet::frequency2scale(double frequency) const {
     return (2 * order.get() + 1) / (4. * M_PI * frequency);
 }
 
-std::string wavelet::PaulWavelet::info() const {
+std::string woma::PaulWavelet::info() const {
     std::stringstream infostrstream;
     infostrstream << Wavelet::info();
     infostrstream << "\tType: Morlet\n";
@@ -106,12 +106,12 @@ std::string wavelet::PaulWavelet::info() const {
     return infostrstream.str();
 }
 
-double wavelet::PaulWavelet::eFoldingTime() const {
+double woma::PaulWavelet::eFoldingTime() const {
     return this->scale.get() / M_SQRT2;
 }
 
-void wavelet::PaulWavelet::setAttribute_internal(std::string attr_name,
-                                                 boost::any const& attr_value) {
+void woma::PaulWavelet::setAttribute_internal(std::string attr_name,
+                                              boost::any const& attr_value) {
     try {
         Wavelet::setAttribute_internal(attr_name, attr_value);
     } catch (std::out_of_range& e) {
@@ -123,7 +123,7 @@ void wavelet::PaulWavelet::setAttribute_internal(std::string attr_name,
     }
 }
 
-boost::any wavelet::PaulWavelet::getAttribute_internal(
+boost::any woma::PaulWavelet::getAttribute_internal(
     std::string attr_name) const {
     try {
         return Wavelet::getAttribute_internal(attr_name);

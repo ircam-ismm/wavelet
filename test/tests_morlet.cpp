@@ -37,23 +37,23 @@
 #include "catch.hpp"
 #include "catch_utilities.hpp"
 #define WAVELET_TESTING
-#include "wavelet_all.hpp"
+#include "woma.hpp"
 
 TEST_CASE("MorletWavelet: Construction & Destruction", "[MorletWavelet]") {
     float samplerate = 100.;
-    wavelet::MorletWavelet morlet(samplerate);
+    woma::MorletWavelet morlet(samplerate);
     CHECK(morlet.scale.get() == 2. / samplerate);
     CHECK(morlet.samplerate.get() == samplerate);
-    CHECK(morlet.mode.get() == wavelet::Wavelet::RECURSIVE);
+    CHECK(morlet.mode.get() == woma::Wavelet::RECURSIVE);
     morlet.setDefaultWindowsize();
 }
 
 TEST_CASE("MorletWavelet: Values (Recursive)", "[MorletWavelet]") {
     float samplerate = 100.;
-    wavelet::MorletWavelet morlet(samplerate);
+    woma::MorletWavelet morlet(samplerate);
     CHECK(morlet.scale.get() == 2. / samplerate);
     CHECK(morlet.samplerate.get() == samplerate);
-    CHECK(morlet.mode.get() == wavelet::Wavelet::RECURSIVE);
+    CHECK(morlet.mode.get() == woma::Wavelet::RECURSIVE);
     morlet.window_size.set(8);
     std::vector<std::complex<double> > morlet_ref1(8);
     morlet_ref1[0] = std::complex<double>(-0.06031253, 0.03910428);

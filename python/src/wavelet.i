@@ -82,7 +82,7 @@ namespace std {
 %template(_setAttribute_ ## type_name) Filterbank::setAttribute<cpp_type>;
 %enddef
 
-namespace wavelet {
+namespace woma {
     WRAP_ATTR_TEMPLATES(bool, bool)
     WRAP_ATTR_TEMPLATES(unsigned_char, unsigned char)
     WRAP_ATTR_TEMPLATES(unsigned_int, unsigned int)

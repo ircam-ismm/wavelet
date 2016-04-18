@@ -1,5 +1,5 @@
 /*
- * morlet.h
+ * womaMorlet.h
  *
  * Complex Morlet Wavelet
  *
@@ -34,12 +34,12 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef morlet_h
-#define morlet_h
+#ifndef womaMorlet_h
+#define womaMorlet_h
 
-#include "../core/wavelet.hpp"
+#include "../core/womaWavelet.hpp"
 
-namespace wavelet {
+namespace woma {
 /**
  * @class MorletWavelet
  * @brief Complex Morlet Wavelet

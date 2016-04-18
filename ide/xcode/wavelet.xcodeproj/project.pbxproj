@@ -8,41 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		0B385A741AF2C44A00C1A2D2 /* main_wavelets_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */; };
-		0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* attribute.cpp */; };
-		0B4607F81B67D95800E3E1CE /* attribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* attribute.hpp */; };
-		0B4607FA1B67D95800E3E1CE /* wavelet_all.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */; };
-		0B4607FD1B67D95800E3E1CE /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
-		0B4607FE1B67D95800E3E1CE /* filterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* filterbank.hpp */; };
-		0B4607FF1B67D95800E3E1CE /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
-		0B4608001B67D95800E3E1CE /* wavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* wavelet.hpp */; };
-		0B4608051B67D9A400E3E1CE /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
-		0B4608061B67D9A400E3E1CE /* morlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* morlet.hpp */; };
-		0B7126E41B90949900D00372 /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
-		0B7126E51B90949900D00372 /* lowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* lowpass.hpp */; };
-		0B7126E71B91FF4E00D00372 /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
-		0B7126E81B91FF4E00D00372 /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
-		0B7126EA1B91FF4E00D00372 /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
-		0B7126EB1B91FF4E00D00372 /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
-		0B7126EC1B91FF4E00D00372 /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
+		0B4607F71B67D95800E3E1CE /* womaAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* womaAttribute.cpp */; };
+		0B4607F81B67D95800E3E1CE /* womaAttribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* womaAttribute.hpp */; };
+		0B4607FA1B67D95800E3E1CE /* woma.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* woma.hpp */; };
+		0B4607FD1B67D95800E3E1CE /* womaFilterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* womaFilterbank.cpp */; };
+		0B4607FE1B67D95800E3E1CE /* womaFilterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* womaFilterbank.hpp */; };
+		0B4607FF1B67D95800E3E1CE /* womaWavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* womaWavelet.cpp */; };
+		0B4608001B67D95800E3E1CE /* womaWavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* womaWavelet.hpp */; };
+		0B4608051B67D9A400E3E1CE /* womaMorlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* womaMorlet.cpp */; };
+		0B4608061B67D9A400E3E1CE /* womaMorlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* womaMorlet.hpp */; };
+		0B7126E41B90949900D00372 /* womaLowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* womaLowpass.cpp */; };
+		0B7126E51B90949900D00372 /* womaLowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* womaLowpass.hpp */; };
+		0B7126E71B91FF4E00D00372 /* womaWavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* womaWavelet.cpp */; };
+		0B7126E81B91FF4E00D00372 /* womaFilterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* womaFilterbank.cpp */; };
+		0B7126EA1B91FF4E00D00372 /* womaLowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* womaLowpass.cpp */; };
+		0B7126EB1B91FF4E00D00372 /* womaMorlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* womaMorlet.cpp */; };
+		0B7126EC1B91FF4E00D00372 /* womaPaul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* womaPaul.cpp */; };
 		0B7126EF1B91FF8A00D00372 /* libwavelet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B385A441AF2C0B400C1A2D2 /* libwavelet.a */; };
 		0B7126F01B9203A800D00372 /* tests_morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B287A1A1B05F076006D8F9A /* tests_morlet.cpp */; };
 		0B7126F11B9203A800D00372 /* tests_paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA71B6B74E300A34889 /* tests_paul.cpp */; };
 		0B9C9A621B725E09005E5F7F /* tests_filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B385A7A1AF2C7A000C1A2D2 /* tests_filterbank.cpp */; };
-		0BD30A8C1B947B000006BACA /* wavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* wavelet.cpp */; };
-		0BD30A8D1B947B000006BACA /* morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* morlet.cpp */; };
-		0BD30A8E1B947B000006BACA /* attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* attribute.cpp */; };
-		0BD30A8F1B947B000006BACA /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
-		0BD30A901B947B000006BACA /* lowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* lowpass.cpp */; };
-		0BD30A911B947B000006BACA /* filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* filterbank.cpp */; };
-		0BD30A941B947B000006BACA /* morlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* morlet.hpp */; };
-		0BD30A951B947B000006BACA /* paul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* paul.hpp */; };
-		0BD30A961B947B000006BACA /* attribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* attribute.hpp */; };
-		0BD30A981B947B000006BACA /* lowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* lowpass.hpp */; };
-		0BD30A991B947B000006BACA /* wavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* wavelet.hpp */; };
-		0BD30A9A1B947B000006BACA /* wavelet_all.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */; };
-		0BD30A9B1B947B000006BACA /* filterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* filterbank.hpp */; };
-		0BFC0CA51B6B70F600A34889 /* paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* paul.cpp */; };
-		0BFC0CA61B6B70F600A34889 /* paul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* paul.hpp */; };
+		0BD30A8C1B947B000006BACA /* womaWavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F51B67D95800E3E1CE /* womaWavelet.cpp */; };
+		0BD30A8D1B947B000006BACA /* womaMorlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4608031B67D9A400E3E1CE /* womaMorlet.cpp */; };
+		0BD30A8E1B947B000006BACA /* womaAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607ED1B67D95800E3E1CE /* womaAttribute.cpp */; };
+		0BD30A8F1B947B000006BACA /* womaPaul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* womaPaul.cpp */; };
+		0BD30A901B947B000006BACA /* womaLowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B7126E21B90949900D00372 /* womaLowpass.cpp */; };
+		0BD30A911B947B000006BACA /* womaFilterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B4607F31B67D95800E3E1CE /* womaFilterbank.cpp */; };
+		0BD30A941B947B000006BACA /* womaMorlet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4608041B67D9A400E3E1CE /* womaMorlet.hpp */; };
+		0BD30A951B947B000006BACA /* womaPaul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* womaPaul.hpp */; };
+		0BD30A961B947B000006BACA /* womaAttribute.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607EE1B67D95800E3E1CE /* womaAttribute.hpp */; };
+		0BD30A981B947B000006BACA /* womaLowpass.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B7126E31B90949900D00372 /* womaLowpass.hpp */; };
+		0BD30A991B947B000006BACA /* womaWavelet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F61B67D95800E3E1CE /* womaWavelet.hpp */; };
+		0BD30A9A1B947B000006BACA /* woma.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F01B67D95800E3E1CE /* woma.hpp */; };
+		0BD30A9B1B947B000006BACA /* womaFilterbank.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0B4607F41B67D95800E3E1CE /* womaFilterbank.hpp */; };
+		0BFC0CA51B6B70F600A34889 /* womaPaul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC0CA31B6B70F600A34889 /* womaPaul.cpp */; };
+		0BFC0CA61B6B70F600A34889 /* womaPaul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0BFC0CA41B6B70F600A34889 /* womaPaul.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,20 +81,20 @@
 		0B385A701AF2C44800C1A2D2 /* catch_utilities.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch_utilities.hpp; sourceTree = "<group>"; };
 		0B385A711AF2C44800C1A2D2 /* main_wavelets_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_wavelets_tests.cpp; sourceTree = "<group>"; };
 		0B385A7A1AF2C7A000C1A2D2 /* tests_filterbank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests_filterbank.cpp; sourceTree = "<group>"; };
-		0B4607ED1B67D95800E3E1CE /* attribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attribute.cpp; sourceTree = "<group>"; };
-		0B4607EE1B67D95800E3E1CE /* attribute.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = attribute.hpp; sourceTree = "<group>"; };
-		0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wavelet_all.hpp; sourceTree = "<group>"; };
-		0B4607F31B67D95800E3E1CE /* filterbank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filterbank.cpp; sourceTree = "<group>"; };
-		0B4607F41B67D95800E3E1CE /* filterbank.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = filterbank.hpp; sourceTree = "<group>"; };
-		0B4607F51B67D95800E3E1CE /* wavelet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wavelet.cpp; sourceTree = "<group>"; };
-		0B4607F61B67D95800E3E1CE /* wavelet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wavelet.hpp; sourceTree = "<group>"; };
-		0B4608031B67D9A400E3E1CE /* morlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = morlet.cpp; sourceTree = "<group>"; };
-		0B4608041B67D9A400E3E1CE /* morlet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = morlet.hpp; sourceTree = "<group>"; };
-		0B7126E21B90949900D00372 /* lowpass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lowpass.cpp; sourceTree = "<group>"; };
-		0B7126E31B90949900D00372 /* lowpass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lowpass.hpp; sourceTree = "<group>"; };
+		0B4607ED1B67D95800E3E1CE /* womaAttribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaAttribute.cpp; sourceTree = "<group>"; };
+		0B4607EE1B67D95800E3E1CE /* womaAttribute.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaAttribute.hpp; sourceTree = "<group>"; };
+		0B4607F01B67D95800E3E1CE /* woma.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = woma.hpp; sourceTree = "<group>"; };
+		0B4607F31B67D95800E3E1CE /* womaFilterbank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaFilterbank.cpp; sourceTree = "<group>"; };
+		0B4607F41B67D95800E3E1CE /* womaFilterbank.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaFilterbank.hpp; sourceTree = "<group>"; };
+		0B4607F51B67D95800E3E1CE /* womaWavelet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaWavelet.cpp; sourceTree = "<group>"; };
+		0B4607F61B67D95800E3E1CE /* womaWavelet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaWavelet.hpp; sourceTree = "<group>"; };
+		0B4608031B67D9A400E3E1CE /* womaMorlet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaMorlet.cpp; sourceTree = "<group>"; };
+		0B4608041B67D9A400E3E1CE /* womaMorlet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaMorlet.hpp; sourceTree = "<group>"; };
+		0B7126E21B90949900D00372 /* womaLowpass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaLowpass.cpp; sourceTree = "<group>"; };
+		0B7126E31B90949900D00372 /* womaLowpass.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaLowpass.hpp; sourceTree = "<group>"; };
 		0BD30A9F1B947B010006BACA /* libwavelet.a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libwavelet.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BFC0CA31B6B70F600A34889 /* paul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = paul.cpp; sourceTree = "<group>"; };
-		0BFC0CA41B6B70F600A34889 /* paul.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = paul.hpp; sourceTree = "<group>"; };
+		0BFC0CA31B6B70F600A34889 /* womaPaul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = womaPaul.cpp; sourceTree = "<group>"; };
+		0BFC0CA41B6B70F600A34889 /* womaPaul.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = womaPaul.hpp; sourceTree = "<group>"; };
 		0BFC0CA71B6B74E300A34889 /* tests_paul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests_paul.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,7 +179,7 @@
 		0B385A661AF2C3FE00C1A2D2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				0B4607F01B67D95800E3E1CE /* wavelet_all.hpp */,
+				0B4607F01B67D95800E3E1CE /* woma.hpp */,
 				0B4608011B67D95D00E3E1CE /* core */,
 				0B4608021B67D98200E3E1CE /* wavelets */,
 			);
@@ -203,14 +203,14 @@
 		0B4608011B67D95D00E3E1CE /* core */ = {
 			isa = PBXGroup;
 			children = (
-				0B4607ED1B67D95800E3E1CE /* attribute.cpp */,
-				0B4607EE1B67D95800E3E1CE /* attribute.hpp */,
-				0B7126E21B90949900D00372 /* lowpass.cpp */,
-				0B7126E31B90949900D00372 /* lowpass.hpp */,
-				0B4607F51B67D95800E3E1CE /* wavelet.cpp */,
-				0B4607F61B67D95800E3E1CE /* wavelet.hpp */,
-				0B4607F31B67D95800E3E1CE /* filterbank.cpp */,
-				0B4607F41B67D95800E3E1CE /* filterbank.hpp */,
+				0B4607ED1B67D95800E3E1CE /* womaAttribute.cpp */,
+				0B4607EE1B67D95800E3E1CE /* womaAttribute.hpp */,
+				0B7126E21B90949900D00372 /* womaLowpass.cpp */,
+				0B7126E31B90949900D00372 /* womaLowpass.hpp */,
+				0B4607F51B67D95800E3E1CE /* womaWavelet.cpp */,
+				0B4607F61B67D95800E3E1CE /* womaWavelet.hpp */,
+				0B4607F31B67D95800E3E1CE /* womaFilterbank.cpp */,
+				0B4607F41B67D95800E3E1CE /* womaFilterbank.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -218,10 +218,10 @@
 		0B4608021B67D98200E3E1CE /* wavelets */ = {
 			isa = PBXGroup;
 			children = (
-				0B4608031B67D9A400E3E1CE /* morlet.cpp */,
-				0B4608041B67D9A400E3E1CE /* morlet.hpp */,
-				0BFC0CA31B6B70F600A34889 /* paul.cpp */,
-				0BFC0CA41B6B70F600A34889 /* paul.hpp */,
+				0B4608031B67D9A400E3E1CE /* womaMorlet.cpp */,
+				0B4608041B67D9A400E3E1CE /* womaMorlet.hpp */,
+				0BFC0CA31B6B70F600A34889 /* womaPaul.cpp */,
+				0BFC0CA41B6B70F600A34889 /* womaPaul.hpp */,
 			);
 			path = wavelets;
 			sourceTree = "<group>";
@@ -233,13 +233,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4608061B67D9A400E3E1CE /* morlet.hpp in Headers */,
-				0BFC0CA61B6B70F600A34889 /* paul.hpp in Headers */,
-				0B4607F81B67D95800E3E1CE /* attribute.hpp in Headers */,
-				0B7126E51B90949900D00372 /* lowpass.hpp in Headers */,
-				0B4608001B67D95800E3E1CE /* wavelet.hpp in Headers */,
-				0B4607FA1B67D95800E3E1CE /* wavelet_all.hpp in Headers */,
-				0B4607FE1B67D95800E3E1CE /* filterbank.hpp in Headers */,
+				0B4608061B67D9A400E3E1CE /* womaMorlet.hpp in Headers */,
+				0BFC0CA61B6B70F600A34889 /* womaPaul.hpp in Headers */,
+				0B4607F81B67D95800E3E1CE /* womaAttribute.hpp in Headers */,
+				0B7126E51B90949900D00372 /* womaLowpass.hpp in Headers */,
+				0B4608001B67D95800E3E1CE /* womaWavelet.hpp in Headers */,
+				0B4607FA1B67D95800E3E1CE /* woma.hpp in Headers */,
+				0B4607FE1B67D95800E3E1CE /* womaFilterbank.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,13 +247,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD30A941B947B000006BACA /* morlet.hpp in Headers */,
-				0BD30A951B947B000006BACA /* paul.hpp in Headers */,
-				0BD30A961B947B000006BACA /* attribute.hpp in Headers */,
-				0BD30A981B947B000006BACA /* lowpass.hpp in Headers */,
-				0BD30A991B947B000006BACA /* wavelet.hpp in Headers */,
-				0BD30A9A1B947B000006BACA /* wavelet_all.hpp in Headers */,
-				0BD30A9B1B947B000006BACA /* filterbank.hpp in Headers */,
+				0BD30A941B947B000006BACA /* womaMorlet.hpp in Headers */,
+				0BD30A951B947B000006BACA /* womaPaul.hpp in Headers */,
+				0BD30A961B947B000006BACA /* womaAttribute.hpp in Headers */,
+				0BD30A981B947B000006BACA /* womaLowpass.hpp in Headers */,
+				0BD30A991B947B000006BACA /* womaWavelet.hpp in Headers */,
+				0BD30A9A1B947B000006BACA /* woma.hpp in Headers */,
+				0BD30A9B1B947B000006BACA /* womaFilterbank.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,12 +373,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4607FF1B67D95800E3E1CE /* wavelet.cpp in Sources */,
-				0B4608051B67D9A400E3E1CE /* morlet.cpp in Sources */,
-				0B4607F71B67D95800E3E1CE /* attribute.cpp in Sources */,
-				0BFC0CA51B6B70F600A34889 /* paul.cpp in Sources */,
-				0B7126E41B90949900D00372 /* lowpass.cpp in Sources */,
-				0B4607FD1B67D95800E3E1CE /* filterbank.cpp in Sources */,
+				0B4607FF1B67D95800E3E1CE /* womaWavelet.cpp in Sources */,
+				0B4608051B67D9A400E3E1CE /* womaMorlet.cpp in Sources */,
+				0B4607F71B67D95800E3E1CE /* womaAttribute.cpp in Sources */,
+				0BFC0CA51B6B70F600A34889 /* womaPaul.cpp in Sources */,
+				0B7126E41B90949900D00372 /* womaLowpass.cpp in Sources */,
+				0B4607FD1B67D95800E3E1CE /* womaFilterbank.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,13 +388,13 @@
 			files = (
 				0B7126F01B9203A800D00372 /* tests_morlet.cpp in Sources */,
 				0B9C9A621B725E09005E5F7F /* tests_filterbank.cpp in Sources */,
-				0B7126E71B91FF4E00D00372 /* wavelet.cpp in Sources */,
-				0B7126EA1B91FF4E00D00372 /* lowpass.cpp in Sources */,
-				0B7126EB1B91FF4E00D00372 /* morlet.cpp in Sources */,
+				0B7126E71B91FF4E00D00372 /* womaWavelet.cpp in Sources */,
+				0B7126EA1B91FF4E00D00372 /* womaLowpass.cpp in Sources */,
+				0B7126EB1B91FF4E00D00372 /* womaMorlet.cpp in Sources */,
 				0B385A741AF2C44A00C1A2D2 /* main_wavelets_tests.cpp in Sources */,
 				0B7126F11B9203A800D00372 /* tests_paul.cpp in Sources */,
-				0B7126EC1B91FF4E00D00372 /* paul.cpp in Sources */,
-				0B7126E81B91FF4E00D00372 /* filterbank.cpp in Sources */,
+				0B7126EC1B91FF4E00D00372 /* womaPaul.cpp in Sources */,
+				0B7126E81B91FF4E00D00372 /* womaFilterbank.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,12 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD30A8C1B947B000006BACA /* wavelet.cpp in Sources */,
-				0BD30A8D1B947B000006BACA /* morlet.cpp in Sources */,
-				0BD30A8E1B947B000006BACA /* attribute.cpp in Sources */,
-				0BD30A8F1B947B000006BACA /* paul.cpp in Sources */,
-				0BD30A901B947B000006BACA /* lowpass.cpp in Sources */,
-				0BD30A911B947B000006BACA /* filterbank.cpp in Sources */,
+				0BD30A8C1B947B000006BACA /* womaWavelet.cpp in Sources */,
+				0BD30A8D1B947B000006BACA /* womaMorlet.cpp in Sources */,
+				0BD30A8E1B947B000006BACA /* womaAttribute.cpp in Sources */,
+				0BD30A8F1B947B000006BACA /* womaPaul.cpp in Sources */,
+				0BD30A901B947B000006BACA /* womaLowpass.cpp in Sources */,
+				0BD30A911B947B000006BACA /* womaFilterbank.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

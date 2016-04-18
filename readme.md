@@ -1,9 +1,9 @@
-# Wavelet - A library for online estimation of the Continuous Wavelet Transform
+# woma - Wavelets for Online Movement Analaysis
 
-__wavelet__ is a cross-platform c++ library for online estimation of the Continuous Wavelet Transform (CWT). The online estimation is based on a filterbank implementation of the CWT with minimal delay per scale and optimization based on multi-rate computation. The library also allows for offline estimation of the CWT using FFT.
+__woma__ is a cross-platform c++/python library for online estimation of the Continuous Wavelet Transform (CWT). The online estimation is based on a filterbank implementation of the CWT with minimal delay per scale and optimization based on multi-rate computation. The library also allows for offline estimation of the CWT using FFT.
 
 The following wavelets are currently implemented:
-- Complex Morlet Wavelet (also called Gabor wavelet)
+- Complex Morlet (= Gabor) Wavelet
 - Paul wavelet
 
 ### Contact
@@ -84,7 +84,7 @@ make docapi
 ```
 #### Usage
 
-The header file "wavelet_all.h" includes all useful headers of the library.
+The header file "woma.h" includes all useful headers of the library.
 
 ### Building the Python Library
 #### Dependencies

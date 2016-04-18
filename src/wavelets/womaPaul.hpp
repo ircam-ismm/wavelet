@@ -1,5 +1,5 @@
 /*
- * paul.h
+ * womaPaul.h
  *
  * Paul Wavelet
  *
@@ -34,12 +34,12 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef paul_h
-#define paul_h
+#ifndef womaPaul_h
+#define womaPaul_h
 
-#include "../core/wavelet.hpp"
+#include "../core/womaWavelet.hpp"
 
-namespace wavelet {
+namespace woma {
 /**
  * @class PaulWavelet
  * @brief Paul Wavelet

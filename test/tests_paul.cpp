@@ -37,14 +37,14 @@
 #include "catch.hpp"
 #include "catch_utilities.hpp"
 #define WAVELET_TESTING
-#include "wavelet_all.hpp"
+#include "woma.hpp"
 
 TEST_CASE("PaulWavelet: Filterbank", "[PaulWavelet]") {
     float samplerate(100.);
     float frequency_min = 1.;
     float frequency_max = 30.;
     float bands_per_octave = 4;
-    wavelet::Filterbank filterbank(samplerate, frequency_min, frequency_max,
-                                   bands_per_octave);
-    filterbank.family.set(wavelet::PAUL);
+    woma::Filterbank filterbank(samplerate, frequency_min, frequency_max,
+                                bands_per_octave);
+    filterbank.family.set(woma::Family::Paul);
 }

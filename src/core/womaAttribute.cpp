@@ -1,5 +1,5 @@
 /*
- * attribute.cpp
+ * womaAttribute.cpp
  *
  * Generic Attributes
  *
@@ -34,17 +34,17 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "attribute.hpp"
+#include "womaAttribute.hpp"
 #include <string>
 
 template <>
-void wavelet::checkLimits<bool>(bool const& value, bool const& limit_min,
-                                bool const& limit_max) {}
+void woma::checkLimits<bool>(bool const& value, bool const& limit_min,
+                             bool const& limit_max) {}
 
 template <>
-void wavelet::checkLimits<std::size_t>(std::size_t const& value,
-                                       std::size_t const& limitMin,
-                                       std::size_t const& limitMax) {
+void woma::checkLimits<std::size_t>(std::size_t const& value,
+                                    std::size_t const& limitMin,
+                                    std::size_t const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -52,9 +52,9 @@ void wavelet::checkLimits<std::size_t>(std::size_t const& value,
 }
 
 template <>
-void wavelet::checkLimits<unsigned char>(unsigned char const& value,
-                                         unsigned char const& limitMin,
-                                         unsigned char const& limitMax) {
+void woma::checkLimits<unsigned char>(unsigned char const& value,
+                                      unsigned char const& limitMin,
+                                      unsigned char const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -62,8 +62,8 @@ void wavelet::checkLimits<unsigned char>(unsigned char const& value,
 }
 
 template <>
-void wavelet::checkLimits<char>(char const& value, char const& limitMin,
-                                char const& limitMax) {
+void woma::checkLimits<char>(char const& value, char const& limitMin,
+                             char const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -71,9 +71,9 @@ void wavelet::checkLimits<char>(char const& value, char const& limitMin,
 }
 
 template <>
-void wavelet::checkLimits<unsigned int>(unsigned int const& value,
-                                        unsigned int const& limitMin,
-                                        unsigned int const& limitMax) {
+void woma::checkLimits<unsigned int>(unsigned int const& value,
+                                     unsigned int const& limitMin,
+                                     unsigned int const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -81,8 +81,8 @@ void wavelet::checkLimits<unsigned int>(unsigned int const& value,
 }
 
 template <>
-void wavelet::checkLimits<int>(int const& value, int const& limitMin,
-                               int const& limitMax) {
+void woma::checkLimits<int>(int const& value, int const& limitMin,
+                            int const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -90,8 +90,8 @@ void wavelet::checkLimits<int>(int const& value, int const& limitMin,
 }
 
 template <>
-void wavelet::checkLimits<long>(long const& value, long const& limitMin,
-                                long const& limitMax) {
+void woma::checkLimits<long>(long const& value, long const& limitMin,
+                             long const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -99,8 +99,8 @@ void wavelet::checkLimits<long>(long const& value, long const& limitMin,
 }
 
 template <>
-void wavelet::checkLimits<float>(float const& value, float const& limitMin,
-                                 float const& limitMax) {
+void woma::checkLimits<float>(float const& value, float const& limitMin,
+                              float const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +
@@ -108,8 +108,8 @@ void wavelet::checkLimits<float>(float const& value, float const& limitMin,
 }
 
 template <>
-void wavelet::checkLimits<double>(double const& value, double const& limitMin,
-                                  double const& limitMax) {
+void woma::checkLimits<double>(double const& value, double const& limitMin,
+                               double const& limitMax) {
     if (value < limitMin || value > limitMax)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limitMin) + " ; " +

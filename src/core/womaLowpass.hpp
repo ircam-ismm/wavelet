@@ -1,7 +1,7 @@
 /*
- * lowpass.h
+ * womaLowpass.h
  *
- * Digital Chebyshev Type 1 low-pass Filter
+ * Digital Chebyshev Type 1 low-pass Filter (adapted from NUMPY library)
  *
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
@@ -37,11 +37,11 @@
 #ifndef __wavelet__lowpass__
 #define __wavelet__lowpass__
 
-#include "attribute.hpp"
+#include "womaAttribute.hpp"
 #include <complex>
 #include <vector>
 
-namespace wavelet {
+namespace woma {
 /**
  * @class LowpassFilter
  * @brief Chebyshev Type 1 low-pass Filter

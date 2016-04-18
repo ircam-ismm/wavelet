@@ -1,5 +1,5 @@
 /*
- * wavelet_all.h
+ * woma.h
  *
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
@@ -32,10 +32,11 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef wavelet_all_h
-#define wavelet_all_h
+#ifndef woma_h
+#define woma_h
 
-#include "core/filterbank.hpp"
+#include "core/womaAttribute.hpp"
+#include "core/womaFilterbank.hpp"
 
 /**
     @mainpage Wavelet - A library for online estimation of the Continuous
@@ -148,7 +149,7 @@
     ```
     @par Usage
 
-    The header file "wavelet_all.h" includes all useful headers of the library.
+    The header file "woma.h" includes all useful headers of the library.
 
     @section building-python Building the Python Library
     @par Dependencies
@@ -176,7 +177,7 @@
     @section cppex C++ Example
 
     @code{.cpp}
-    #include "wavelet_all.hpp"
+    #include "woma.hpp"
 
     int main()
     {
@@ -184,7 +185,7 @@
      float frequency_min = 0.1;
      float frequency_max = 50.;
      float bands_per_octave = 8;
-     wavelet::Filterbank cwt(samplerate_hz,
+     woma::Filterbank cwt(samplerate_hz,
                              frequency_min,
                              frequency_max,
                              bands_per_octave);

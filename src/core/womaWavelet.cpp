@@ -1,5 +1,5 @@
 /*
- * wavelet.cpp
+ * womaWavelet.cpp
  *
  * Wavelet base class (Abstract)
  *
@@ -34,9 +34,9 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "wavelet.hpp"
+#include "womaWavelet.hpp"
 
-wavelet::Wavelet::Wavelet(float samplerate)
+woma::Wavelet::Wavelet(float samplerate)
     : samplerate(this, samplerate, 0.),
       scale(this, 2. / static_cast<double>(this->samplerate.get()), 0.),
       window_size(this, 1, 1),
@@ -44,14 +44,14 @@ wavelet::Wavelet::Wavelet(float samplerate)
       delay(this, DEFAULT_DELAY(), 0.),
       padding(this, DEFAULT_PADDING(), 0.) {}
 
-wavelet::Wavelet::Wavelet(Wavelet const& src) { _copy(this, src); }
+woma::Wavelet::Wavelet(Wavelet const& src) { _copy(this, src); }
 
-wavelet::Wavelet& wavelet::Wavelet::operator=(Wavelet const& src) {
+woma::Wavelet& woma::Wavelet::operator=(Wavelet const& src) {
     if (this != &src) _copy(this, src);
     return *this;
 }
 
-void wavelet::Wavelet::_copy(Wavelet* dst, Wavelet const& src) {
+void woma::Wavelet::_copy(Wavelet* dst, Wavelet const& src) {
     dst->samplerate = src.samplerate;
     dst->samplerate.set_parent(dst);
     dst->scale = src.scale;
@@ -67,7 +67,7 @@ void wavelet::Wavelet::_copy(Wavelet* dst, Wavelet const& src) {
     dst->values = src.values;
 }
 
-void wavelet::Wavelet::init() {
+void woma::Wavelet::init() {
     values.assign(this->window_size.get(), 0.0);
     if (this->mode.get() == RECURSIVE) {
         int pad_length = static_cast<int>(padding.get() * eFoldingTime() *
@@ -111,12 +111,12 @@ void wavelet::Wavelet::init() {
     }
 }
 
-void wavelet::Wavelet::onAttributeChange(AttributeBase* attr_pointer) {
+void woma::Wavelet::onAttributeChange(AttributeBase* attr_pointer) {
     init();
     attr_pointer->changed = false;
 }
 
-std::string wavelet::Wavelet::info() const {
+std::string woma::Wavelet::info() const {
     std::stringstream infostrstream;
     infostrstream << "Wavelet:\n";
     infostrstream << "\tSampling rate: " << this->samplerate.get() << "\n";
@@ -127,8 +127,8 @@ std::string wavelet::Wavelet::info() const {
     return infostrstream.str();
 }
 
-void wavelet::Wavelet::setAttribute_internal(std::string attr_name,
-                                             boost::any const& attr_value) {
+void woma::Wavelet::setAttribute_internal(std::string attr_name,
+                                          boost::any const& attr_value) {
     if (attr_name == "samplerate") {
         samplerate.set(boost::any_cast<float>(attr_value));
     } else if (attr_name == "scale") {
@@ -146,8 +146,7 @@ void wavelet::Wavelet::setAttribute_internal(std::string attr_name,
     }
 }
 
-boost::any wavelet::Wavelet::getAttribute_internal(
-    std::string attr_name) const {
+boost::any woma::Wavelet::getAttribute_internal(std::string attr_name) const {
     if (attr_name == "samplerate") {
         return boost::any(samplerate.get());
     } else if (attr_name == "scale") {
@@ -165,7 +164,7 @@ boost::any wavelet::Wavelet::getAttribute_internal(
     }
 }
 
-void wavelet::Wavelet::setDefaultWindowsize() {
+void woma::Wavelet::setDefaultWindowsize() {
     std::size_t winsize = static_cast<std::size_t>(
         2. * delay.get() * eFoldingTime() * this->samplerate.get());
     winsize = (winsize < 3) ? 3 : winsize;
@@ -174,10 +173,10 @@ void wavelet::Wavelet::setDefaultWindowsize() {
 }
 
 template <>
-void wavelet::checkLimits<wavelet::Wavelet::WaveletDomain>(
-    wavelet::Wavelet::WaveletDomain const& value,
-    wavelet::Wavelet::WaveletDomain const& limit_min,
-    wavelet::Wavelet::WaveletDomain const& limit_max) {
+void woma::checkLimits<woma::Wavelet::WaveletDomain>(
+    woma::Wavelet::WaveletDomain const& value,
+    woma::Wavelet::WaveletDomain const& limit_min,
+    woma::Wavelet::WaveletDomain const& limit_max) {
     if (value < limit_min || value > limit_max)
         throw std::domain_error("Attribute value out of range. Range: [" +
                                 std::to_string(limit_min) + " ; " +
@@ -185,7 +184,7 @@ void wavelet::checkLimits<wavelet::Wavelet::WaveletDomain>(
 }
 
 template <>
-wavelet::Wavelet::WaveletDomain
-wavelet::Attribute<wavelet::Wavelet::WaveletDomain>::default_limit_max() {
-    return wavelet::Wavelet::SPECTRAL;
+woma::Wavelet::WaveletDomain
+woma::Attribute<woma::Wavelet::WaveletDomain>::default_limit_max() {
+    return woma::Wavelet::SPECTRAL;
 }

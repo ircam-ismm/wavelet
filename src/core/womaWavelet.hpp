@@ -1,5 +1,5 @@
 /*
- * wavelet.h
+ * womaWavelet.h
  *
  * Wavelet base class (Abstract)
  *
@@ -34,24 +34,24 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef wavelet_h
-#define wavelet_h
+#ifndef womaWavelet_h
+#define womaWavelet_h
 
-#include "attribute.hpp"
+#include "womaAttribute.hpp"
 #include <cmath>
 #include <complex>
 #include <iostream>
 #include <string>
 
-namespace wavelet {
+namespace woma {
 /**
  * @class Wavelet
  * @brief Abstract class containing common wavelet definitions and methods
  */
 class Wavelet : public AttributeHandler {
+  public:
     friend class Filterbank;
 
-  public:
     ///@cond DEVDOC
 
     /**
