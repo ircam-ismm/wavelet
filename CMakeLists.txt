@@ -1,11 +1,11 @@
 cmake_minimum_required (VERSION 2.6)
 
 # Project declaration
-project(wavelet)
+project(woma)
 
 # The version number.
-set (wavelet_VERSION_MAJOR 0)
-set (wavelet_VERSION_MINOR 1)
+set (woma_VERSION_MAJOR 0)
+set (woma_VERSION_MINOR 1)
 
 # Compiler Flags
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
@@ -46,20 +46,20 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 file(
     GLOB_RECURSE
-    wavelet_source_files
+    woma_source_files
     src/*
 )
 
 add_library(
-    wavelet
+    woma
     STATIC
-    ${wavelet_source_files}
+    ${woma_source_files}
 )
 
 # linking configuration
 if(ARMADILLO_FOUND)
     target_link_libraries(
-        wavelet
+        woma
         ${ARMADILLO_LIBRARIES}
     )
 endif(ARMADILLO_FOUND)
@@ -70,24 +70,24 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/catch)
 
 file(
     GLOB_RECURSE
-    wavelet_test_files
+    woma_test_files
     test/*
 )
 
 add_executable(
     tests
     EXCLUDE_FROM_ALL
-    ${wavelet_test_files}
+    ${woma_test_files}
 )
 
 # linking configuration
 target_link_libraries(
     tests
-    wavelet
+    woma
 )
 
-set_target_properties(tests PROPERTIES OUTPUT_NAME wavelet_testing)
-add_custom_command(TARGET tests POST_BUILD COMMAND ${EXECUTABLE_OUTPUT_PATH}/wavelet_testing)
+set_target_properties(tests PROPERTIES OUTPUT_NAME woma_testing)
+add_custom_command(TARGET tests POST_BUILD COMMAND ${EXECUTABLE_OUTPUT_PATH}/woma_testing)
 
 # add a target to generate API documentation with Doxygen
 find_package(Doxygen)

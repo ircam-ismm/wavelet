@@ -20,7 +20,7 @@ else()
         message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-# Require global Wavelet project
+# Require global Woma project
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_SOURCE_DIR}/_build_tmp)
 
 # PYTHON STUFF
@@ -57,7 +57,7 @@ if(ARMADILLO_FOUND)
     add_definitions(-DUSE_ARMA)
 endif(ARMADILLO_FOUND)
 
-# Include python and Wavelet header directories
+# Include python and Woma header directories
 include_directories(${PYTHON_INCLUDE_PATH})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src)
@@ -82,26 +82,26 @@ endif(DOXYGEN_FOUND)
 # Add target for python documentation from doxygen
 file(
     GLOB_RECURSE
-    wavelet_header_files
+    woma_header_files
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.h
 )
-add_custom_command(OUTPUT wavelet_doc.i
-                   DEPENDS docpy ${wavelet_header_files}
-                   COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/src/doxy2swig.py ${CMAKE_CURRENT_SOURCE_DIR}/_build_tmp/xml/index.xml ${CMAKE_CURRENT_SOURCE_DIR}/wavelet_doc.i)
+add_custom_command(OUTPUT woma_doc.i
+                   DEPENDS docpy ${woma_header_files}
+                   COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/src/doxy2swig.py ${CMAKE_CURRENT_SOURCE_DIR}/_build_tmp/xml/index.xml ${CMAKE_CURRENT_SOURCE_DIR}/woma_doc.i)
 
 # Look for armadillo
 set(CMAKE_SWIG_FLAGS "")
 set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/numpy.i PROPERTIES CPLUSPLUS ON)
-set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/wavelet.i PROPERTIES CPLUSPLUS ON)
+set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/woma.i PROPERTIES CPLUSPLUS ON)
 if(ARMADILLO_FOUND)
-    set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/wavelet.i PROPERTIES SWIG_FLAGS "-DUSE_ARMA")
+    set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/woma.i PROPERTIES SWIG_FLAGS "-DUSE_ARMA")
 endif(ARMADILLO_FOUND)
-SET(SWIG_MODULE_wavelet_EXTRA_DEPS 
-    wavelet_doc.i
+SET(SWIG_MODULE_woma_EXTRA_DEPS 
+    woma_doc.i
 )
-SWIG_ADD_MODULE(wavelet python ${CMAKE_CURRENT_SOURCE_DIR}/src/wavelet.i)
-SWIG_LINK_LIBRARIES(wavelet ${PYTHON_LIBRARIES} wavelet)
+SWIG_ADD_MODULE(woma python ${CMAKE_CURRENT_SOURCE_DIR}/src/woma.i)
+SWIG_LINK_LIBRARIES(woma ${PYTHON_LIBRARIES} woma)
 
-add_custom_command(TARGET _wavelet POST_BUILD COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/src/move_files.sh)
+add_custom_command(TARGET _woma POST_BUILD COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/src/move_files.sh)
 
-set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${CMAKE_CURRENT_SOURCE_DIR}/bin/wavelet;${CMAKE_CURRENT_SOURCE_DIR}/_build_tmp/xml")
+set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "${CMAKE_CURRENT_SOURCE_DIR}/bin/woma;${CMAKE_CURRENT_SOURCE_DIR}/_build_tmp/xml")

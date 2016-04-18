@@ -1,6 +1,6 @@
 ide/xcode/build
-ide/xcode/wavelet.xcodeproj/project.xcworkspace
-ide/xcode/wavelet.xcodeproj/xcuserdata
+ide/xcode/woma.xcodeproj/project.xcworkspace
+ide/xcode/woma.xcodeproj/xcuserdata
 doc/html
 doc/xml
 bin
@@ -8,9 +8,9 @@ Makefile
 python/Makefile
 CMakeFiles
 python/bin
-python/wavelet.py
-python/wavelet_doc.i
-python/waveletPYTHON_wrap.cxx
+python/woma.py
+python/woma_doc.i
+python/womaPYTHON_wrap.cxx
 python/bin
 python/_build_tmp
 *CMakeCache.txt

@@ -40,7 +40,7 @@
 #include "../wavelets/womaMorlet.hpp"
 #include "../wavelets/womaPaul.hpp"
 #include "womaLowpass.hpp"
-#include "womaWavelet.hpp" "
+#include "womaWavelet.hpp"
 #include <boost/circular_buffer.hpp>
 #include <map>
 #ifdef USE_ARMA

@@ -1,2 +1,2 @@
-__all__ = ["wavelet"]
-from wavelet import *
+__all__ = ["woma"]
+from woma import *

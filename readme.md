@@ -1,4 +1,4 @@
-# woma - Wavelets for Online Movement Analaysis
+# woma - Wavelets for Online Movement Analysis
 
 __woma__ is a cross-platform c++/python library for online estimation of the Continuous Wavelet Transform (CWT). The online estimation is based on a filterbank implementation of the CWT with minimal delay per scale and optimization based on multi-rate computation. The library also allows for offline estimation of the CWT using FFT.
 

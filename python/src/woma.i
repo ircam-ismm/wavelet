@@ -1,7 +1,7 @@
 /*
- * wavelet.i
+ * woma.i
  *
- * Swig interface file to the Wavelet Library
+ * Swig interface file to the woma Library
  *
  * Contact:
  * - Jules Françoise <jules.francoise@ircam.fr>
@@ -30,18 +30,18 @@
  * along with Wavelet.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-%module(docstring="Wavelet - A library for online estimation of the Continuous Wavelet Transform") wavelet
+%module(docstring="woma - Wavelets for Online Movement Analysis") woma
 
 #pragma SWIG nowarn=362,503
 
 %{
     #define SWIG_FILE_WITH_INIT
-    #include "attribute.hpp"
-    #include "wavelet.hpp"
-    #include "morlet.hpp"
-    #include "paul.hpp"
-	#include "filterbank.hpp"
-    #include "lowpass.hpp"
+    #include "womaAttribute.hpp"
+    #include "womaFilterbank.hpp"
+    #include "womaLowpass.hpp"
+    #include "womaWavelet.hpp"
+    #include "womaMorlet.hpp"
+    #include "womaPaul.hpp"
 %}
 
 %exception {
@@ -67,13 +67,13 @@ namespace std {
     %template(vectors) std::vector<std::string>;
 };
 
-%include ../wavelet_doc.i
-%include "attribute.hpp"
-%include "wavelet.hpp"
-%include "morlet.hpp"
-%include "paul.hpp"
-%include "filterbank.hpp"
-%include "lowpass.hpp"
+%include ../woma_doc.i
+%include "womaAttribute.hpp"
+%include "womaFilterbank.hpp"
+%include "womaLowpass.hpp"
+%include "womaWavelet.hpp"
+%include "womaMorlet.hpp"
+%include "womaPaul.hpp"
 
 // Wrap Attribute template specializations
 %define WRAP_ATTR_TEMPLATES(type_name, cpp_type)
@@ -120,7 +120,7 @@ def setAttribute(self, attr_name, attr_value):
     Value range: {None, Standard1, Standard2, Agressive1, Agressive2}
 'family' [Family]:
     Wavelet Family
-    Value range: {MORLET, PAUL}
+    Value range: {Morlet, Paul}
 'samplerate' [float]:
      Sampling rate of the data
     Value range: ]0.

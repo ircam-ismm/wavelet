@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA789D751CC58A5900E3F21D /* womaAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D511CC586DC00E3F21D /* womaAttribute.cpp */; };
+		FA789D761CC58A5900E3F21D /* womaFilterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D531CC586DC00E3F21D /* womaFilterbank.cpp */; };
+		FA789D771CC58A5900E3F21D /* womaLowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D551CC586DC00E3F21D /* womaLowpass.cpp */; };
+		FA789D781CC58A5900E3F21D /* womaWavelet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D571CC586DC00E3F21D /* womaWavelet.cpp */; };
+		FA789D791CC58A5900E3F21D /* womaMorlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D5A1CC586DC00E3F21D /* womaMorlet.cpp */; };
+		FA789D7A1CC58A5900E3F21D /* womaPaul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D5C1CC586DC00E3F21D /* womaPaul.cpp */; };
+		FA789D861CC58ACB00E3F21D /* main_wavelets_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D611CC586DC00E3F21D /* main_wavelets_tests.cpp */; };
+		FA789D871CC58ACB00E3F21D /* tests_filterbank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D621CC586DC00E3F21D /* tests_filterbank.cpp */; };
+		FA789D881CC58ACB00E3F21D /* tests_morlet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D631CC586DC00E3F21D /* tests_morlet.cpp */; };
+		FA789D891CC58ACB00E3F21D /* tests_paul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA789D641CC586DC00E3F21D /* tests_paul.cpp */; };
+		FA789D8C1CC58CBC00E3F21D /* libwoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA789D691CC5896B00E3F21D /* libwoma.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA789D8A1CC58CB800E3F21D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA789D491CC586C100E3F21D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA789D681CC5896B00E3F21D;
+			remoteInfo = woma;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA789D7D1CC58A9200E3F21D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FA789D511CC586DC00E3F21D /* womaAttribute.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaAttribute.cpp; sourceTree = "<group>"; };
+		FA789D521CC586DC00E3F21D /* womaAttribute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaAttribute.hpp; sourceTree = "<group>"; };
+		FA789D531CC586DC00E3F21D /* womaFilterbank.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaFilterbank.cpp; sourceTree = "<group>"; };
+		FA789D541CC586DC00E3F21D /* womaFilterbank.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaFilterbank.hpp; sourceTree = "<group>"; };
+		FA789D551CC586DC00E3F21D /* womaLowpass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaLowpass.cpp; sourceTree = "<group>"; };
+		FA789D561CC586DC00E3F21D /* womaLowpass.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaLowpass.hpp; sourceTree = "<group>"; };
+		FA789D571CC586DC00E3F21D /* womaWavelet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaWavelet.cpp; sourceTree = "<group>"; };
+		FA789D581CC586DC00E3F21D /* womaWavelet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaWavelet.hpp; sourceTree = "<group>"; };
+		FA789D5A1CC586DC00E3F21D /* womaMorlet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaMorlet.cpp; sourceTree = "<group>"; };
+		FA789D5B1CC586DC00E3F21D /* womaMorlet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaMorlet.hpp; sourceTree = "<group>"; };
+		FA789D5C1CC586DC00E3F21D /* womaPaul.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = womaPaul.cpp; sourceTree = "<group>"; };
+		FA789D5D1CC586DC00E3F21D /* womaPaul.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = womaPaul.hpp; sourceTree = "<group>"; };
+		FA789D5E1CC586DC00E3F21D /* woma.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = woma.hpp; sourceTree = "<group>"; };
+		FA789D601CC586DC00E3F21D /* catch_utilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catch_utilities.hpp; sourceTree = "<group>"; };
+		FA789D611CC586DC00E3F21D /* main_wavelets_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main_wavelets_tests.cpp; sourceTree = "<group>"; };
+		FA789D621CC586DC00E3F21D /* tests_filterbank.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tests_filterbank.cpp; sourceTree = "<group>"; };
+		FA789D631CC586DC00E3F21D /* tests_morlet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tests_morlet.cpp; sourceTree = "<group>"; };
+		FA789D641CC586DC00E3F21D /* tests_paul.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tests_paul.cpp; sourceTree = "<group>"; };
+		FA789D691CC5896B00E3F21D /* libwoma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwoma.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA789D7F1CC58A9200E3F21D /* tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tests; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA789D661CC5896B00E3F21D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA789D7C1CC58A9200E3F21D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA789D8C1CC58CBC00E3F21D /* libwoma.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA789D481CC586C100E3F21D = {
+			isa = PBXGroup;
+			children = (
+				FA789D4F1CC586DC00E3F21D /* src */,
+				FA789D5F1CC586DC00E3F21D /* test */,
+				FA789D6A1CC5896B00E3F21D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA789D4F1CC586DC00E3F21D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FA789D501CC586DC00E3F21D /* core */,
+				FA789D591CC586DC00E3F21D /* wavelets */,
+				FA789D5E1CC586DC00E3F21D /* woma.hpp */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		FA789D501CC586DC00E3F21D /* core */ = {
+			isa = PBXGroup;
+			children = (
+				FA789D511CC586DC00E3F21D /* womaAttribute.cpp */,
+				FA789D521CC586DC00E3F21D /* womaAttribute.hpp */,
+				FA789D531CC586DC00E3F21D /* womaFilterbank.cpp */,
+				FA789D541CC586DC00E3F21D /* womaFilterbank.hpp */,
+				FA789D551CC586DC00E3F21D /* womaLowpass.cpp */,
+				FA789D561CC586DC00E3F21D /* womaLowpass.hpp */,
+				FA789D571CC586DC00E3F21D /* womaWavelet.cpp */,
+				FA789D581CC586DC00E3F21D /* womaWavelet.hpp */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		FA789D591CC586DC00E3F21D /* wavelets */ = {
+			isa = PBXGroup;
+			children = (
+				FA789D5A1CC586DC00E3F21D /* womaMorlet.cpp */,
+				FA789D5B1CC586DC00E3F21D /* womaMorlet.hpp */,
+				FA789D5C1CC586DC00E3F21D /* womaPaul.cpp */,
+				FA789D5D1CC586DC00E3F21D /* womaPaul.hpp */,
+			);
+			path = wavelets;
+			sourceTree = "<group>";
+		};
+		FA789D5F1CC586DC00E3F21D /* test */ = {
+			isa = PBXGroup;
+			children = (
+				FA789D601CC586DC00E3F21D /* catch_utilities.hpp */,
+				FA789D611CC586DC00E3F21D /* main_wavelets_tests.cpp */,
+				FA789D621CC586DC00E3F21D /* tests_filterbank.cpp */,
+				FA789D631CC586DC00E3F21D /* tests_morlet.cpp */,
+				FA789D641CC586DC00E3F21D /* tests_paul.cpp */,
+			);
+			name = test;
+			path = ../../test;
+			sourceTree = "<group>";
+		};
+		FA789D6A1CC5896B00E3F21D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA789D691CC5896B00E3F21D /* libwoma.a */,
+				FA789D7F1CC58A9200E3F21D /* tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FA789D671CC5896B00E3F21D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FA789D681CC5896B00E3F21D /* woma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA789D721CC5896B00E3F21D /* Build configuration list for PBXNativeTarget "woma" */;
+			buildPhases = (
+				FA789D651CC5896B00E3F21D /* Sources */,
+				FA789D661CC5896B00E3F21D /* Frameworks */,
+				FA789D671CC5896B00E3F21D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = woma;
+			productName = woma;
+			productReference = FA789D691CC5896B00E3F21D /* libwoma.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FA789D7E1CC58A9200E3F21D /* tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA789D831CC58A9200E3F21D /* Build configuration list for PBXNativeTarget "tests" */;
+			buildPhases = (
+				FA789D7B1CC58A9200E3F21D /* Sources */,
+				FA789D7C1CC58A9200E3F21D /* Frameworks */,
+				FA789D7D1CC58A9200E3F21D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA789D8B1CC58CB800E3F21D /* PBXTargetDependency */,
+			);
+			name = tests;
+			productName = tests;
+			productReference = FA789D7F1CC58A9200E3F21D /* tests */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA789D491CC586C100E3F21D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				TargetAttributes = {
+					FA789D681CC5896B00E3F21D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					FA789D7E1CC58A9200E3F21D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = FA789D4C1CC586C100E3F21D /* Build configuration list for PBXProject "woma" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FA789D481CC586C100E3F21D;
+			productRefGroup = FA789D6A1CC5896B00E3F21D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA789D681CC5896B00E3F21D /* woma */,
+				FA789D7E1CC58A9200E3F21D /* tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA789D651CC5896B00E3F21D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA789D791CC58A5900E3F21D /* womaMorlet.cpp in Sources */,
+				FA789D761CC58A5900E3F21D /* womaFilterbank.cpp in Sources */,
+				FA789D771CC58A5900E3F21D /* womaLowpass.cpp in Sources */,
+				FA789D751CC58A5900E3F21D /* womaAttribute.cpp in Sources */,
+				FA789D781CC58A5900E3F21D /* womaWavelet.cpp in Sources */,
+				FA789D7A1CC58A5900E3F21D /* womaPaul.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA789D7B1CC58A9200E3F21D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA789D871CC58ACB00E3F21D /* tests_filterbank.cpp in Sources */,
+				FA789D891CC58ACB00E3F21D /* tests_paul.cpp in Sources */,
+				FA789D881CC58ACB00E3F21D /* tests_morlet.cpp in Sources */,
+				FA789D861CC58ACB00E3F21D /* main_wavelets_tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA789D8B1CC58CB800E3F21D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA789D681CC5896B00E3F21D /* woma */;
+			targetProxy = FA789D8A1CC58CB800E3F21D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FA789D4D1CC586C100E3F21D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BOOST_HEADER_DIR = /usr/local/include;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CMAKE = /usr/local/bin/cmake;
+				DOXYGEN = /usr/local/bin/doxygen;
+				DSTROOT = "${PROJECT_DIR}../../bin/";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					USE_ARMA,
+				);
+				HEADER_SEARCH_PATHS = "$(BOOST_HEADER_DIR)";
+				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		FA789D4E1CC586C100E3F21D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BOOST_HEADER_DIR = /usr/local/include;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CMAKE = /usr/local/bin/cmake;
+				DOXYGEN = /usr/local/bin/doxygen;
+				DSTROOT = "${PROJECT_DIR}../../bin/";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = USE_ARMA;
+				HEADER_SEARCH_PATHS = "$(BOOST_HEADER_DIR)";
+				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+			};
+			name = Release;
+		};
+		FA789D731CC5896B00E3F21D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA789D741CC5896B00E3F21D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA789D841CC58A9200E3F21D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CATCH_HEADERS = "${PROJECT_DIR}/../../dependencies/catch";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BOOST_HEADER_DIR)",
+					"${CATCH_HEADERS}",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		FA789D851CC58A9200E3F21D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CATCH_HEADERS = "${PROJECT_DIR}/../../dependencies/catch";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(BOOST_HEADER_DIR)",
+					"${CATCH_HEADERS}",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA789D4C1CC586C100E3F21D /* Build configuration list for PBXProject "woma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA789D4D1CC586C100E3F21D /* Debug */,
+				FA789D4E1CC586C100E3F21D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA789D721CC5896B00E3F21D /* Build configuration list for PBXNativeTarget "woma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA789D731CC5896B00E3F21D /* Debug */,
+				FA789D741CC5896B00E3F21D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA789D831CC58A9200E3F21D /* Build configuration list for PBXNativeTarget "tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA789D841CC58A9200E3F21D /* Debug */,
+				FA789D851CC58A9200E3F21D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA789D491CC586C100E3F21D /* Project object */;
+}
