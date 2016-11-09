@@ -273,6 +273,7 @@ void wavelet::Filterbank::init()
             break;
     }
     
+  
     data_.clear();
     filters_.clear();
     if (optimisation.get() == NONE) {
