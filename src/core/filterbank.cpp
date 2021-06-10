@@ -280,7 +280,7 @@ void wavelet::Filterbank::init()
         data_[1].resize(wavelets_[wavelets_.size() - 1]->window_size.get());
         downsampling_factors.clear();
     } else {
-        for (int i=0; i<wavelets_.size(); i++) {
+        for (unsigned int i=0; i<wavelets_.size(); i++) {
             data_[downsampling_factors[i]].resize(wavelets_[i]->window_size.get() * downsampling_factors[i]);
             data_[downsampling_factors[i]].clear();
             if ((downsampling_factors[i] > 1) && (filters_.count(downsampling_factors[i]) == 0)) {

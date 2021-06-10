@@ -87,7 +87,7 @@ void wavelet::Wavelet::init()
             double wavelet_arg = (double(t) - double(this->window_size.get() / 2)) / (this->scale.get() * this->samplerate.get());
             postpad_value_ += std::conj(phi(wavelet_arg));
         }
-        for (int t=0; t<this->window_size.get(); ++t) {
+        for (unsigned int t=0; t<this->window_size.get(); ++t) {
             double wavelet_arg = (double(t) - double(this->window_size.get() / 2)) / (this->scale.get() * this->samplerate.get());
             values[t] = phi(wavelet_arg);
         }

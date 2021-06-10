@@ -121,7 +121,7 @@ double wavelet::LowpassFilter::cheby1ap(int filter_order, double ripple_db, std:
 
 double wavelet::LowpassFilter::_zpklp2lp(std::vector< std::complex<double> > &p, double k, double wo)
 {
-    for (int i=0; i<p.size(); i++) {
+    for (unsigned int i = 0; i < p.size(); i++) {
         p[i] *= wo;
     }
     double degree = static_cast<double>(p.size());
@@ -137,14 +137,14 @@ double wavelet::LowpassFilter::_zpkbilinear(std::vector< std::complex<double> > 
     
     // Any zeros that were at infinity get moved to the Nyquist frequency
     std::complex<double> factor_denum = 1.;
-    for (int i=0; i<p.size(); i++) {
+    for (unsigned int i = 0; i < p.size(); i++) {
         factor_denum *= fs2 - p[i];
     }
     factor_denum = 1. / factor_denum;
     
     // Bilinear transform the poles and zeros
     z.assign(p.size(), -1.);
-    for (int i=0; i<p.size(); i++) {
+    for (unsigned int i = 0; i < p.size(); i++) {
         p[i] = (fs2 + p[i]) / (fs2 - p[i]);
     }
     
@@ -179,7 +179,7 @@ void wavelet::LowpassFilter::poly(std::vector< std::complex<double> > sequence_o
     result.assign(1, 1.);
     std::vector< std::complex<double> > result_tmp;
     std::vector< std::complex<double> > y(2, 1.);
-    for (int i=0; i<sequence_of_zeros.size(); i++) {
+    for (unsigned int i = 0; i < sequence_of_zeros.size(); i++) {
         y[1] = -sequence_of_zeros[i];
         convolve(result, y, result_tmp);
         result = result_tmp;
@@ -194,10 +194,10 @@ void wavelet::LowpassFilter::zpk2tf(std::vector< std::complex<double> > &z, std:
     poly(p, a_tmp);
     b.resize(b_tmp.size());
     a.resize(a_tmp.size());
-    for (int i=0; i<b.size(); i++) {
+    for (unsigned int i = 0; i < b.size(); i++) {
         b[i] = k * b_tmp[i].real();
     }
-    for (int i=0; i<a.size(); i++) {
+    for (unsigned int i = 0; i < a.size(); i++) {
         a[i] = a_tmp[i].real();
     }
 }
@@ -206,7 +206,7 @@ double wavelet::LowpassFilter::filter(double value)
 {
     double filtered_value;
     filtered_value = b[0] * value + z[0];
-    for (unsigned int i=0; i<order.get()-1; i++) {
+    for (int i = 0; i < order.get() - 1; i++) {
         z[i] = b[i+1] * value + z[i+1] - a[i+1] * filtered_value;
     }
     z[order.get()-1] = b[order.get()] * value - a[order.get()] * filtered_value;
